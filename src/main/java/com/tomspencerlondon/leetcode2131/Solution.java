@@ -31,8 +31,8 @@ public class Solution {
     List<String> allCombinations = new ArrayList<>();
     for (int i = 0; i < words.size(); i++) {
       List<String> reducedList = deleteOneWord(words, i);
-      List<String> twoCombination = prependForFour(reducedList, words.get(i));
-      allCombinations.addAll(twoCombination);
+      List<String> threeCombination = prependForFour(reducedList, words.get(i));
+      allCombinations.addAll(threeCombination);
     }
     return allCombinations;
   }
