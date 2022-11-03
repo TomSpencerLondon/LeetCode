@@ -26,6 +26,24 @@ public class Solution {
     return result;
   }
 
+
+  public List<String> chooseFour(List<String> words) {
+    List<String> allCombinations = new ArrayList<>();
+    for (int i = 0; i < words.size(); i++) {
+      List<String> reducedList = deleteOneWord(words, i);
+      List<String> twoCombination = prependForFour(reducedList, words.get(i));
+      allCombinations.addAll(twoCombination);
+    }
+    return allCombinations;
+  }
+
+  private List<String> prependForFour(List<String> reducedList, String word) {
+    return chooseThree(reducedList)
+        .stream()
+        .map(s -> word + s)
+        .collect(Collectors.toList());
+  }
+
   public List<String> chooseThree(List<String> words) {
     List<String> allCombinations = new ArrayList<>();
     for (int i = 0; i < words.size(); i++) {
@@ -48,6 +66,4 @@ public class Solution {
     result.remove(index);
     return result;
   }
-
-
 }

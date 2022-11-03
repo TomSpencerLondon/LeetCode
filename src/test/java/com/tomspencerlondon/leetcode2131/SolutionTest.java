@@ -45,6 +45,66 @@ class SolutionTest {
 //    "gglccl"
 
   }
+
+  @Test
+  void chooseFourReturnsAllCombinationsOfFour() {
+    // ddlcclgg
+// ddlcggcl
+// ddcllcgg
+// ddclgglc
+// ddgglccl
+// ddggcllc
+// lcclggdd
+// lcggcldd
+// cllcggdd
+// clgglcdd
+// gglccldd
+// ggcllcdd
+// lcddclgg
+// lcddggcl
+// clddlcgg
+// clddgglc
+// ggddlccl
+// ggddcllc
+// lcclddgg
+// lcggddcl
+// cllcddgg
+// clggddlc
+// gglcddcl
+// ggclddlc
+
+    Solution solution = new Solution();
+    List<String> input = List.of("cl", "lc", "gg", "dd");
+
+    assertThat(solution.chooseFour(input))
+        .containsExactlyInAnyOrder(
+            "ddlcggcl",
+            "ddcllcgg",
+            "ddclgglc",
+            "ddgglccl",
+            "ddggcllc",
+            "lcclggdd",
+            "lcggcldd",
+            "cllcggdd",
+            "clgglcdd",
+            "gglccldd",
+            "ggcllcdd",
+            "lcddclgg",
+            "lcddggcl",
+            "clddlcgg",
+            "clddgglc",
+            "ggddlccl",
+            "ggddcllc",
+            "lcclddgg",
+            "lcggddcl",
+            "cllcddgg",
+            "clggddlc",
+            "gglcddcl",
+            "ggclddlc",
+            "ddlcclgg"
+        );
+
+  }
 }
 
 
@@ -69,6 +129,37 @@ class SolutionTest {
 // clgglc
 // gglccl
 // ggcllc
+
+// Choose 4:
+// Input: lc cl gg dd
+// ddlcclgg
+// ddlcggcl
+// ddcllcgg
+// ddclgglc
+// ddgglccl
+// ddggcllc
+// lcclggdd
+// lcggcldd
+// cllcggdd
+// clgglcdd
+// gglccldd
+// ggcllcdd
+// lcddclgg
+// lcddggcl
+// clddlcgg
+// clddgglc
+// ggddlccl
+// ggddcllc
+// lcclddgg
+// lcggddcl
+// cllcddgg
+// clggddlc
+// gglcddcl
+// ggclddlc
+
+
+
+
 
 // 1. Select and concatenate
 // 2. Finding if it is a palindrome
