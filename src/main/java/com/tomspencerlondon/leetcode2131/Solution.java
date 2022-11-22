@@ -27,6 +27,7 @@ public class Solution {
   }
 
 
+
   public List<String> chooseFour(List<String> words) {
     List<String> allCombinations = new ArrayList<>();
     for (int i = 0; i < words.size(); i++) {
