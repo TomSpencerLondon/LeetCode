@@ -13,7 +13,12 @@ public class LinkedList2 {
 //  O/P --
 //  1 --> 3 --> 4 --> 7 --> 2 --> Null
     SinglyLinkedList<Object> list = new SinglyLinkedList<>();
-    list.insertAtHead(8);
+//    list.insertAtHead(8);
+//    list.insertAtHead(7);
+//    list.insertAtHead(2);
+//    list.insertAtHead(4);
+//    list.insertAtHead(3);
+//    list.insertAtHead(1);
     list.insertAtHead(7);
     list.insertAtHead(2);
     list.insertAtHead(4);
