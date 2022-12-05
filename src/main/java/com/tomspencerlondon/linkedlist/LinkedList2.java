@@ -56,6 +56,7 @@ public class LinkedList2 {
     SinglyLinkedList.Node slow = list.headNode;
     SinglyLinkedList.Node fast = list.headNode;
 
+    // Harshit:- No need to check slow != null && fast.nextNode.nextNode != null..Because fast will always reach to null faster. and fast.nextNode.nextNode tends to give wrong result...
     while (slow != null && fast != null && fast.nextNode != null && fast.nextNode.nextNode != null) {
 
       slow = slow.nextNode;
