@@ -28,21 +28,34 @@ public class Stock2 {
 //  [3, 1, 4, 2, 6, 8, 12]
 //
   public static void main(String[] args) {
-    System.out.println(calculateProfit(new int[] {3, 1, 4, 2, 6, 8, 12}));
+//    System.out.println(calculateProfit(new int[] {3, 1, 4, 2, 6, 8, 12}));
 //    3 + 1 + 5 + 7 + 11 =
 //    price = 3
 //    currentMin = 3
 //    profit = 3, 0
-//
+// buy date:
+//    2, 4, 6
+//    Sell date:
+//    3, 5, 7
+//    [3, 1, 4, 2, 6, 8, 12]
+//    [1, 5, 4, 3, 2, 6, 10]
+//    profit = 12
+    System.out.println(calculateProfit(new int[] {1, 5, 4, 3, 2, 6, 10}));
+//    4,
   }
 
   public static int calculateProfit(int[] prices) {
+    if (prices.length == 0) {
+      return 0;
+    }
     int buy = prices[0];
     int finalProfit = 0;
     for (int i = 1; i < prices.length; i++) {
       int sell = prices[i];
       if (sell - buy > 0) {
         finalProfit += sell - buy;
+        System.out.println("Buy: " + (i));
+        System.out.println("Sell: " + (i + 1));
       }
 
       buy = prices[i];
