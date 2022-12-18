@@ -40,7 +40,12 @@ public class Stock2 {
 //    [3, 1, 4, 2, 6, 8, 12]
 //    [1, 5, 4, 3, 2, 6, 10]
 //    profit = 12
-    System.out.println(calculateProfit(new int[] {1, 5, 4, 3, 2, 6, 10}));
+//    System.out.println(calculateProfit(new int[] {1, 5, 4, 3, 2, 6, 10}));
+    System.out.println(calculateProfit(new int[] {3, 1, 4, 2, 6, 8, 12}));
+//  [3, 1, 4, 2, 6, 8, 12]
+//  buy 1 sell 4 - profit 3
+//  buy 2 sell 12 - profit 10
+//  profit = 13
 //    4,
   }
 
