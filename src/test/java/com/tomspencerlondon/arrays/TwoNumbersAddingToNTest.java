@@ -32,9 +32,9 @@ class TwoNumbersAddingToNTest {
   public void emptyArrayIfNoTwoNumbersAddToN() {
     int[] input = {1, 4, 5, 7, 9};
     int n = 4;
-    int[] expectedOutput2 = {};
+    int[] expected = {};
     int[] actual = TwoNumbersAddingToN.twoNumbersAddingToN(input, n);
-    assertArrayEquals(expectedOutput2, actual);
+    assertArrayEquals(expected, actual);
   }
 
   @Test
