@@ -12,7 +12,6 @@ public class Solution {
   }
 
 
-
   public List<String> chooseTwo(List<String> words) {
     List<String> result = new ArrayList<>();
     for (int i = 0; i < words.size(); i++) {
