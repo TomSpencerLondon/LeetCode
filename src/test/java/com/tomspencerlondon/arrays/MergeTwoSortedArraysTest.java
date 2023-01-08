@@ -13,7 +13,6 @@ class MergeTwoSortedArraysTest {
 //  one array, which should also be sorted.
 @Test
 public void mergeTwoArraysOfSameLength() {
-  // Test 1: Check that the method correctly merges two sorted arrays of the same length
   int[] input1 = {1, 3, 5};
   int[] input2 = {2, 4, 6};
   int[] expected = {1, 2, 3, 4, 5, 6};
