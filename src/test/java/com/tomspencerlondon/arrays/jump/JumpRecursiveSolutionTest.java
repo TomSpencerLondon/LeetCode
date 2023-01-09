@@ -19,7 +19,6 @@ class JumpRecursiveSolutionTest {
 
   @Test
   void returnFourIfAllOnes() {
-    // Test 4: Check that the method returns the minimum number of jumps to reach the end of the array when the jump length is always equal to 1
     int[] input = {1, 1, 1, 1, 1};
     int index = 0;
     int expected = 4;
