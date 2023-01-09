@@ -5,9 +5,7 @@ public class JumpIterative {
   public static void main(String[] args) {
     int[] numbers = new int[]{2, 3, 1, 1, 4};
 
-//    System.out.println(jumpIterative(numbers));
-
-    System.out.println(Integer.MAX_VALUE + 1);
+    System.out.println(jumpIterative(numbers));
   }
 
   public static int jumpIterative(int[] numbers) {
