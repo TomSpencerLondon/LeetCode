@@ -21,3 +21,27 @@ public class Challenge11 {
         return finalMax;
     }
 }
+
+// Workings:
+
+// [1, 7, -2, -5, 10, -1]
+// maxSumSoFar = 1
+// finalMax = 1
+
+// maxSumSoFar = 8
+// finalMax = 8
+
+// maxSumSoFar = 6
+// finalMax = 8
+
+// maxSumSoFar = 1
+// finalMax = 8
+
+// maxSumSoFar = 11
+// finalMax = 11
+
+// maxSumSoFar = 10
+// finalMax = 11
+
+
+
