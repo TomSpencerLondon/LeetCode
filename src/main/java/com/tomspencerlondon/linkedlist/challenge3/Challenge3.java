@@ -1,5 +1,7 @@
 package com.tomspencerlondon.linkedlist.challenge3;
 
+import java.util.Arrays;
+
 class Challenge3 {
 // Challenge 3: Deletion in Singly Linked List(Delete by Value)
 // Based on how we handled the deletion at head strategy,
