@@ -1,4 +1,4 @@
-package com.tomspencerlondon.linkedlist.challenge5;
+package com.tomspencerlondon.linkedlist.challenge8;
 
 public class SinglyLinkedList<T> {
   //Node inner class for SLL
@@ -159,6 +159,7 @@ public class SinglyLinkedList<T> {
     }
   }
 }
+
 
 class Node<T>{
   public T data;

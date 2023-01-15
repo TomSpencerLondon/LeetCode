@@ -2,40 +2,30 @@ package com.tomspencerlondon.linkedlist.challenge7;
 
 public class Challenge7 {
     public static void main(String[] args) {
-        // Remove duplicates from a linked list
-//      Given a linked list remove duplicates from it
-
         SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
-        list.insertAtHead(2);
+        list.insertAtHead(21);
         list.insertAtHead(10);
+        list.insertAtHead(14);
         list.insertAtHead(7);
-        list.insertAtHead(10);
 
 
-        list.printList();
-        removeDuplicatesFrom(list);
-        list.printList();
+        System.out.println(middleNodeFor(list));
     }
 
-    private static void removeDuplicatesFrom(SinglyLinkedList<Integer> list) {
-        Node prev = list.headNode;
-        Node outer = list.headNode;
+    private static Object middleNodeFor(SinglyLinkedList<Integer> list) {
+        Node mid = list.headNode;
+        Node fast = list.headNode;
 
-        while (outer != null) {
-            Node inner = outer.nextNode;
-            while (inner != null) {
-                if (inner.data.equals(outer.data)) {
-                    prev.nextNode = inner.nextNode;
-                    inner = prev;
-                }
-
-                prev = inner;
-                inner = inner.nextNode;
+        while (mid != null && fast != null && fast.nextNode != null) {
+            fast = fast.nextNode.nextNode;
+            if (fast != null) {
+                mid = mid.nextNode;
             }
-
-            outer = outer.nextNode;
         }
 
 
+        return mid.data;
     }
+
+
 }

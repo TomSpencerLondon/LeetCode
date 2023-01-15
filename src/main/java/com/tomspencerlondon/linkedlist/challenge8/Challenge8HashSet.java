@@ -1,9 +1,9 @@
-package com.tomspencerlondon.linkedlist.challenge7;
+package com.tomspencerlondon.linkedlist.challenge8;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Challenge7HashSet {
+public class Challenge8HashSet {
     public static void main(String[] args) {
         // Remove duplicates from a linked list
 //      Given a linked list remove duplicates from it
