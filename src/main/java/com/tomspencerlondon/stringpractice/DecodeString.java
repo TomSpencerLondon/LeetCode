@@ -6,26 +6,9 @@ public class DecodeString {
 
     public static void main(String[] args) {
         // Decode a string
-//        3[a2[c]]
-//        accaccacc
-//        2[abc]3[cd]ef
-
-//        stack:
-//
-//        3[ab2[cb]]
-//        1[abc1[de]3[ab2[cb]]]
-//        abcdeabcbcb
-
-
-//        3[a2[c]]
-//        accacc
-//       12[ab]
-
-//3[a2[c]]
-//
-
-//        System.out.println(decode("12[ab]"));
-//        System.out.println(decode("3[a2[c]]"));
+        System.out.println(decode("12[ab]"));
+        System.out.println(decode("1[abc1[de]3[ab2[cb]]]"));
+        System.out.println(decode("3[a2[c]]"));
         System.out.println(decode("2[abc]3[cd]ef"));
     }
 
@@ -42,15 +25,15 @@ public class DecodeString {
             } else if (Character.isLetter(c)) {
                 word.append(c);
             } else if (c == '['){
-                countStack.push(number);
-                wordStack.push(word.toString());
+                countStack.add(number);
+                wordStack.add(word.toString());
                 word = new StringBuilder();
                 number = 0;
             } else {
                 StringBuilder duplicatedWord = new StringBuilder(wordStack.pop());
                 int count = countStack.pop();
 
-                for (int j = 1; j < count; j++) {
+                for (int j = 1; j <= count; j++) {
                     duplicatedWord.append(word);
                 }
                 word = duplicatedWord;
