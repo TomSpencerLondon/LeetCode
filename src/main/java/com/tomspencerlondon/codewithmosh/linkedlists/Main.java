@@ -4,17 +4,26 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+//        LinkedList list = new LinkedList();
+//        System.out.println(list.size());
+//
+//        list.addLast(10);
+//        System.out.println(list.size());
+//
+//        list.addLast(20);
+//        list.addLast(20);
+//        System.out.println(list.size());
+//        int[] array = list.toArray();
+//
+//        System.out.println(Arrays.toString(array));
+
         LinkedList list = new LinkedList();
-        System.out.println(list.size());
-
-        list.addLast(10);
-        System.out.println(list.size());
-
+        list.addFirst(10);
         list.addLast(20);
-        list.addLast(20);
-        System.out.println(list.size());
-        int[] array = list.toArray();
+        list.addLast(30);
+//        list.print();
 
-        System.out.println(Arrays.toString(array));
+        list.reverse();
+        list.print();
     }
 }

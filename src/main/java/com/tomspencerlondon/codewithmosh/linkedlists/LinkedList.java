@@ -137,4 +137,18 @@ public class LinkedList {
         return array;
     }
 
+    public void reverse() {
+        Node current = first;
+        Node prev = null;
+        last = first;
+        while (current != null) {
+            Node next = current.nextNode;
+            current.nextNode = prev;
+            prev = current;
+            current = next;
+        }
+
+        first = prev;
+    }
+
 }
