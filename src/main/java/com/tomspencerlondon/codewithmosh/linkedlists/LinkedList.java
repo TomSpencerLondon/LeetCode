@@ -192,4 +192,25 @@ public class LinkedList {
         ultimate.nextNode = prevSecond;
     }
 
+
+    public int kthNodeFromEnd(int k) {
+        if (isEmpty()) {
+            return -1;
+        }
+
+        Node current = first;
+        Node end = first;
+        int count = 0;
+        while (count < k - 1) {
+            end = end.nextNode;
+            count++;
+        }
+
+        while (end.nextNode != null) {
+            current = current.nextNode;
+            end = end.nextNode;
+        }
+
+        return current.data;
+    }
 }
