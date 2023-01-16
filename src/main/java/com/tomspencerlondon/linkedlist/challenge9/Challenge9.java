@@ -25,6 +25,11 @@ public class Challenge9 {
         listB.printList();
         SinglyLinkedList<Integer> union = union(listA, listB);
         union.printList();
+
+        SinglyLinkedList<Integer> intersection = intersection(listA, listB);
+        listA.printList();
+        listB.printList();
+        intersection.printList();
     }
 
     public static SinglyLinkedList<Integer> union(SinglyLinkedList<Integer> listA, SinglyLinkedList<Integer> listB) {
@@ -63,6 +68,28 @@ public class Challenge9 {
 
             current = current.nextNode;
         }
+    }
+
+    public static SinglyLinkedList<Integer> intersection(SinglyLinkedList<Integer> list1, SinglyLinkedList<Integer> list2) {
+        SinglyLinkedList<Integer> result = new SinglyLinkedList<>();
+        // Write -- Your -- Code
+
+        Node list1Node = list1.getHeadNode();
+        Node list2Node = list2.getHeadNode();
+
+        while (list1Node != null) {
+            while (list2Node != null) {
+                if (list1Node.data.equals(list2Node.data)) {
+                    result.insertAtHead((Integer) list1Node.data);
+                }
+                list2Node = list2Node.nextNode;
+            }
+
+            list1Node = list1Node.nextNode;
+        }
+
+
+        return result;
     }
 
 }
