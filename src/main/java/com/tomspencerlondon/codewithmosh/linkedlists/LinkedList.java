@@ -125,4 +125,16 @@ public class LinkedList {
         return this.size;
     }
 
+    public int[] toArray() {
+        int[] array = new int[size];
+        Node current = first;
+        int index = 0;
+        while (current != null) {
+            array[index++] = current.data;
+            current = current.nextNode;
+        }
+
+        return array;
+    }
+
 }
