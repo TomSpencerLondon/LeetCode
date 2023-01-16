@@ -1,6 +1,8 @@
 package com.tomspencerlondon.codewithmosh.arrays;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Array {
     private int[] items;
@@ -43,10 +45,10 @@ public class Array {
     }
 
     public void reverse() {
-        int[] newItems = new int[count];
+        int[] newItems = new int[items.length];
 
-        for (int i = 0; i < count; i++) {
-            newItems[i] = items[count - i - 1];
+        for (int i = 0; i < items.length; i++) {
+            newItems[i] = items[items.length - 1 - i];
         }
 
         items = newItems;
@@ -62,6 +64,26 @@ public class Array {
         }
 
         return max;
+    }
+
+    public int[] intersection(Array array) {
+        int[] temp = new int[array.count + items.length];
+        int index = 0;
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < items.length; i++) {
+            for (int j = 0; j < array.count; j++) {
+                if (items[i] == array.items[j] && !set.contains(items[i])) {
+                    temp[index++] = items[i];
+                    set.add(items[i]);
+                }
+            }
+        }
+        int[] result = new int[index];
+        for (int i = 0; i < index; i++) {
+            result[i] = temp[i];
+        }
+
+        return result;
     }
 
     public void removeAt(int index) {
