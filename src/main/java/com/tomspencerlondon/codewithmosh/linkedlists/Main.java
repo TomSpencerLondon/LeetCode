@@ -21,9 +21,12 @@ public class Main {
         list.addFirst(10);
         list.addLast(20);
         list.addLast(30);
+        list.addLast(40);
+        list.addLast(50);
+        list.addLast(60);
 //        list.print();
 
-        list.reverse();
+        list.reverseUptoIndex(2);
         list.print();
     }
 }

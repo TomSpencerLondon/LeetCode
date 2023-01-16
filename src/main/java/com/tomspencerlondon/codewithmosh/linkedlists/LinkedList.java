@@ -151,4 +151,38 @@ public class LinkedList {
         first = prev;
     }
 
+    public void reverseUptoIndex(int index) {
+        Node current = first;
+        Node prev = null;
+        last = first;
+        int count = 0;
+        Node secondHalf = first;
+        Node prevSecond = null;
+        while (secondHalf != null && count <= index + 1) {
+            prevSecond = secondHalf;
+            secondHalf = secondHalf.nextNode;
+            count++;
+        }
+
+        count = 0;
+        while (current != null && count <= index) {
+            Node next = current.nextNode;
+            current.nextNode = prev;
+            prev = current;
+            current = next;
+            count++;
+        }
+
+        first = prev;
+        Node firstHalf = first;
+        Node ultimate = null;
+        count = 0;
+        while (firstHalf != null && count < index) {
+            ultimate = firstHalf;
+            firstHalf = firstHalf.nextNode;
+        }
+
+        ultimate.nextNode = prevSecond;
+    }
+
 }
