@@ -10,15 +10,15 @@ public class Challenge9 {
         //Given two lists, find the Union & Intersection of their elements.
         SinglyLinkedList<Integer> listA = new SinglyLinkedList<>();
         listA.insertAtHead(2);
-        listA.insertAtHead(10);
+        listA.insertAtHead(8);
         listA.insertAtHead(7);
         listA.insertAtHead(10);
 
         SinglyLinkedList<Integer> listB = new SinglyLinkedList<>();
         listB.insertAtHead(2);
-        listB.insertAtHead(10);
+        listB.insertAtHead(1);
         listB.insertAtHead(7);
-        listB.insertAtHead(10);
+        listB.insertAtHead(20);
 
 
         listA.printList();
@@ -77,15 +77,19 @@ public class Challenge9 {
         Node list1Node = list1.getHeadNode();
         Node list2Node = list2.getHeadNode();
 
+        Set<Integer> set = new HashSet<>();
+
         while (list1Node != null) {
             while (list2Node != null) {
-                if (list1Node.data.equals(list2Node.data)) {
+                if (list1Node.data.equals(list2Node.data) && !set.contains(list1Node.data)) {
                     result.insertAtHead((Integer) list1Node.data);
+                    set.add((Integer) list1Node.data);
                 }
                 list2Node = list2Node.nextNode;
             }
 
             list1Node = list1Node.nextNode;
+            list2Node = list2.getHeadNode();
         }
 
 
