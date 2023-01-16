@@ -1,58 +1,90 @@
 package com.tomspencerlondon.codewithmosh.linkedlists;
 
+import java.util.NoSuchElementException;
+
 public class LinkedList {
     private Node first;
     private Node last;
+    int size;
 
     public void addFirst(int data) {
-        Node temp = first;
-        this.first = new Node(data);
-        first.nextNode = temp;
+        Node node = new Node(data);
+
+        if (isEmpty()) {
+            first = last = node;
+        } else {
+            node.nextNode = first;
+            first = node;
+        }
+        size++;
+    }
+
+    private boolean isEmpty() {
+        return first == null;
     }
 
     public void addLast(int data) {
         Node newNode = new Node(data);
-        if (first == null) {
+        if (isEmpty()) {
             this.first = newNode;
             this.last = newNode;
+            size++;
             return;
         }
 
-        Node current = first;
-        Node prev = null;
-        while (current != null) {
-            prev = current;
-            current = current.nextNode;
+        if (last != null) {
+            last.nextNode = newNode;
         }
 
-        prev.nextNode = newNode;
-        this.last = newNode;
+        last = newNode;
+        size++;
     }
 
     public void deleteFirst() {
-        first = first.nextNode;
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+
+        if (first == last) {
+            first = last = null;
+            return;
+        }
+
+        Node second = first.nextNode;
+        first.nextNode = null;
+        first = second;
+        size--;
     }
 
     public void deleteLast() {
-        Node secondLast = first;
-        while (secondLast.nextNode.nextNode != null) {
-            secondLast = secondLast.nextNode;
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        if (first == last) {
+            first = last = null;
+            return;
         }
 
-        secondLast.nextNode = null;
+        Node previous = getPrevious();
+        last = previous;
+        last.nextNode = null;
+        size--;
     }
 
-    public boolean contains(int data) {
+    private Node getPrevious() {
         Node current = first;
 
         while (current != null) {
-            if (current.data == data) {
-                return true;
+            if (current.nextNode == last) {
+                return current;
             }
             current = current.nextNode;
         }
+        return null;
+    }
 
-        return false;
+    public boolean contains(int data) {
+        return indexOf(data) != -1;
     }
 
     public int indexOf(int data) {
@@ -78,6 +110,7 @@ public class LinkedList {
         }
         System.out.println("null");
     }
+
     private class Node {
         int data;
         Node nextNode;
@@ -85,6 +118,10 @@ public class LinkedList {
         public Node(int data) {
             this.data = data;
         }
+    }
+
+    public int size() {
+        return this.size;
     }
 
 }

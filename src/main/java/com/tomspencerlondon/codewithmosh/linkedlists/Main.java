@@ -2,16 +2,14 @@ package com.tomspencerlondon.codewithmosh.linkedlists;
 
 public class Main {
     public static void main(String[] args) {
-        LinkedList linkedList = new LinkedList();
+        LinkedList list = new LinkedList();
+        System.out.println(list.size());
 
-        linkedList.addFirst(10);
-        linkedList.addLast(20);
-        linkedList.deleteFirst();
-        linkedList.addFirst(10);
-        linkedList.deleteLast();
-        linkedList.print();
+        list.addLast(10);
+        System.out.println(list.size());
 
-        System.out.println(linkedList.indexOf(10));
-        System.out.println(linkedList.contains(10));
+        list.addLast(20);
+        list.addLast(20);
+        System.out.println(list.size());
     }
 }
