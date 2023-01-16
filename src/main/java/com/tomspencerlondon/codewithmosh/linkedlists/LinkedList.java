@@ -78,13 +78,13 @@ public class LinkedList {
         }
         System.out.println("null");
     }
-}
+    private class Node {
+        int data;
+        Node nextNode;
 
-class Node {
-    int data;
-    Node nextNode;
-
-    public Node(int data) {
-        this.data = data;
+        public Node(int data) {
+            this.data = data;
+        }
     }
+
 }
