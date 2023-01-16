@@ -138,9 +138,11 @@ public class LinkedList {
     }
 
     public void reverse() {
+        if (isEmpty()) {
+            return;
+        }
         Node current = first;
         Node prev = null;
-        last = first;
         while (current != null) {
             Node next = current.nextNode;
             current.nextNode = prev;
@@ -148,13 +150,18 @@ public class LinkedList {
             current = next;
         }
 
+        last = first;
+        last.nextNode = null;
         first = prev;
     }
 
     public void reverseUptoIndex(int index) {
+        if (isEmpty()) {
+            return;
+        }
+
         Node current = first;
         Node prev = null;
-        last = first;
         int count = 0;
         Node secondHalf = first;
         Node prevSecond = null;

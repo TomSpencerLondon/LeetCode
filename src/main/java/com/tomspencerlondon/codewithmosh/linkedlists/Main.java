@@ -24,9 +24,10 @@ public class Main {
         list.addLast(40);
         list.addLast(50);
         list.addLast(60);
-//        list.print();
+        list.print();
 
         list.reverseUptoIndex(2);
+//        list.reverse();
         list.print();
     }
 }
