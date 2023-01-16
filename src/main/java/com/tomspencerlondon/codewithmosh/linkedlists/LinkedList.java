@@ -62,6 +62,7 @@ public class LinkedList {
         }
         if (first == last) {
             first = last = null;
+            size--;
             return;
         }
 
