@@ -13,6 +13,9 @@ public class ReverseString {
     }
 
     private static String reverseString(String input) {
+        if (input == null) {
+            throw new IllegalArgumentException();
+        }
         Stack<Character> stack = new Stack<>();
 
         for (char ch : input.toCharArray()) {
@@ -29,6 +32,10 @@ public class ReverseString {
     }
 
     public static String reverseToIndex(String input, int index) {
+        if (input == null) {
+            throw new IllegalArgumentException();
+        }
+
         Stack<Character> stack = new Stack<>();
         StringBuilder result = new StringBuilder();
         for (int i = 0; i <= index; i++) {
