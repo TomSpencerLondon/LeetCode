@@ -24,11 +24,13 @@ public class Main {
         list.addLast(40);
         list.addLast(50);
         list.addLast(60);
+        list.addLast(70);
 //        list.print();
 
 //        list.reverseUptoIndex(2);
 //        list.reverse();
-        System.out.println(list.kthNodeFromEnd(3));
+//        System.out.println(list.kthNodeFromEnd(1));
+        System.out.println(list.printMiddle());
 //        list.print();
     }
 }

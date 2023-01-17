@@ -195,7 +195,7 @@ public class LinkedList {
 
     public int kthNodeFromEnd(int k) {
         if (isEmpty()) {
-            return -1;
+            throw new IllegalStateException();
         }
 
         Node current = first;
@@ -203,6 +203,9 @@ public class LinkedList {
         int count = 0;
         while (count < k - 1) {
             end = end.nextNode;
+            if (end == null) {
+                throw new IllegalArgumentException();
+            }
             count++;
         }
 
@@ -212,5 +215,17 @@ public class LinkedList {
         }
 
         return current.data;
+    }
+
+    public int printMiddle() {
+        Node slow = first;
+        Node fast = first;
+
+        while (fast.nextNode != null && fast.nextNode.nextNode != null) {
+            slow = slow.nextNode;
+            fast = fast.nextNode.nextNode;
+        }
+
+        return slow.data;
     }
 }
