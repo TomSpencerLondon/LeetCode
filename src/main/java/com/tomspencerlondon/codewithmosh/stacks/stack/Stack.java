@@ -50,6 +50,7 @@ public class Stack {
 
     @Override
     public String toString() {
-        return Arrays.toString(items);
+        int[] content = Arrays.copyOfRange(items, 0, top + 1);
+        return Arrays.toString(content);
     }
 }

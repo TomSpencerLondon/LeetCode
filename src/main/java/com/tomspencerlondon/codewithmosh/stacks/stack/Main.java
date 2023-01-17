@@ -10,13 +10,11 @@ public class Main {
         // int[]
 
         Stack stack = new Stack(5);
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        stack.push(4);
-        stack.push(5);
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
 
-        System.out.println(stack.peek());
+        System.out.println(stack);
 
         System.out.println(stack.isEmpty());
 
