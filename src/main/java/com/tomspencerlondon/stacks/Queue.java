@@ -1,5 +1,7 @@
 package com.tomspencerlondon.stacks;
 
+import java.util.Arrays;
+
 public class Queue<V> {
     private int maxSize;
     private V[] array;
@@ -63,5 +65,10 @@ public class Queue<V> {
         V temp = array[front];
         front = (front + 1) % maxSize;
         return temp;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(array);
     }
 }
