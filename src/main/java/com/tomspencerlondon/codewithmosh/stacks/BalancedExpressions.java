@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class BalancedExpressions {
     public static void main(String[] args) {
-        String str = "(((([1] - 1 + <2>)))[a]";
+        String str = "((([1] - 1 + <2>)))[a]";
 
         System.out.println(isBalanced(str));
 
@@ -17,29 +17,14 @@ public class BalancedExpressions {
                 stack.push(ch);
             }
 
-            if (ch == ')') {
-                if (isEmpty(stack)) return false;
-
-                if (stack.peek() == '(') {
-                    stack.pop();
+            if (ch == ')' || ch == '}' || ch == '>' || ch == ']') {
+                if (stack.isEmpty()) {
+                    return false;
                 }
-            } else if (ch == '}') {
-                if (isEmpty(stack)) return false;
 
-                if (stack.peek() == '{') {
-                    stack.pop();
-                }
-            } else if (ch == '>') {
-                if (isEmpty(stack)) return false;
-
-                if (stack.peek() == '<') {
-                    stack.pop();
-                }
-            } else if (ch == ']') {
-                if (isEmpty(stack)) return false;
-
-                if (stack.peek() == '[') {
-                    stack.pop();
+                char top = stack.pop();
+                if (isNotMatch(ch, top)) {
+                    return false;
                 }
             }
 
@@ -48,10 +33,10 @@ public class BalancedExpressions {
         return stack.isEmpty();
     }
 
-    private static boolean isEmpty(Stack<Character> stack) {
-        if (stack.isEmpty()) {
-            return true;
-        }
-        return false;
+    private static boolean isNotMatch(char ch, char top) {
+        return (ch == ')' && top != '(') ||
+                (ch == '}' && top != '{') ||
+                (ch == '>' && top != '<') ||
+                (ch == '[' && top != '[');
     }
 }
