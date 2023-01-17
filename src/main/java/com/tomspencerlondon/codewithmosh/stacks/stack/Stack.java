@@ -1,5 +1,7 @@
 package com.tomspencerlondon.codewithmosh.stacks.stack;
 
+import java.util.Arrays;
+
 public class Stack {
     // Stack
     // push
@@ -20,13 +22,17 @@ public class Stack {
 
     public void push(int data) {
         if (top > size - 2) {
-            throw new IllegalStateException();
+            throw new StackOverflowError();
         }
 
         items[++top] = data;
     }
 
     public int pop() {
+        if (top < 0) {
+           throw new IllegalStateException();
+        }
+
         return items[top--];
     }
 
@@ -34,10 +40,16 @@ public class Stack {
         if (top < 0) {
             throw new IllegalStateException();
         }
+
         return items[top];
     }
 
     public boolean isEmpty() {
         return top < 0;
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(items);
     }
 }
