@@ -228,4 +228,37 @@ public class LinkedList {
 
         return slow.data;
     }
+
+    public boolean hasLoop() {
+        Node slow = first;
+        Node fast = first;
+
+        while (fast.nextNode != null && fast.nextNode.nextNode != null) {
+            slow = slow.nextNode;
+            fast = fast.nextNode.nextNode;
+
+            if (slow.data == fast.data) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static LinkedList createWithLoop() {
+        LinkedList list = new LinkedList();
+        list.addLast(10);
+        list.addLast(20);
+        list.addLast(30);
+
+        Node node = list.last;
+
+        list.addLast(40);
+        list.addLast(50);
+
+        // create loop
+        list.last.nextNode = node;
+
+        return list;
+    }
 }

@@ -31,6 +31,10 @@ public class Main {
 //        list.reverse();
 //        System.out.println(list.kthNodeFromEnd(1));
         System.out.println(list.printMiddle());
+
+        LinkedList loopList = LinkedList.createWithLoop();
+
+        System.out.println(loopList.hasLoop());
 //        list.print();
     }
 }
