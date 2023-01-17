@@ -1,5 +1,7 @@
 package com.tomspencerlondon.stacks;
 
+import java.util.Arrays;
+
 public class Stack <V> {
     private int maxSize;
     private int top;
@@ -54,5 +56,9 @@ public class Stack <V> {
         return null;
     }
 
+    @Override
+    public String toString() {
+        return Arrays.toString(array);
+    }
 }
 
