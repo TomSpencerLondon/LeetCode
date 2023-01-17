@@ -19,7 +19,7 @@ public class Stack {
     }
 
     public void push(int data) {
-        if (top > size) {
+        if (top > size - 2) {
             throw new IllegalStateException();
         }
 
