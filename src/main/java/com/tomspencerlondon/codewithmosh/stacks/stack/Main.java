@@ -18,5 +18,20 @@ public class Main {
 
         System.out.println(stack.isEmpty());
 
+        TwoStack twoStack = new TwoStack(4);
+
+        twoStack.push1(1);
+        twoStack.push1(2);
+        twoStack.push1(3);
+        twoStack.push2(1);
+
+        System.out.println(twoStack.pop1());
+        System.out.println(twoStack.pop2());
+
+        System.out.println(twoStack.pop1());
+        twoStack.push2(2);
+
+        System.out.println(twoStack.pop2());
+
     }
 }
