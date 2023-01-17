@@ -1,5 +1,7 @@
 package com.tomspencerlondon.stacks;
 
+import com.tomspencerlondon.sedgewick.In;
+
 public class Challenge5 {
     // Sort values in a Stack
 
@@ -12,7 +14,7 @@ public class Challenge5 {
         stack.push(4);
 
         System.out.println(stack);
-        sortStack(stack);
+        sortStackRecursive(stack);
 
         System.out.println(stack);
 
@@ -34,7 +36,25 @@ public class Challenge5 {
         while (!temp.isEmpty()) {
             stack.push(temp.pop());
         }
+    }
 
+    public static Stack<Integer> sortStackRecursive(Stack<Integer> stack) {
+        if (!stack.isEmpty()) {
+            int value = stack.pop();
+            sortStackRecursive(stack);
+            insert(stack, value);
+        }
 
+        return stack;
+    }
+
+    public static void insert(Stack<Integer> stack, int value) {
+        if (stack.isEmpty() || stack.top() > value) {
+            stack.push(value);
+        } else {
+            int tmp = stack.pop();
+            insert(stack, value);
+            stack.push(tmp);
+        }
     }
 }
