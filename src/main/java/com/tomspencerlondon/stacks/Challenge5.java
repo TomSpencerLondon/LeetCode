@@ -7,14 +7,13 @@ public class Challenge5 {
 
     public static void main(String[] args) {
         Stack<Integer> stack = new Stack<>(5);
+        stack.push(3);
         stack.push(5);
         stack.push(2);
-        stack.push(3);
         stack.push(1);
-        stack.push(4);
 
         System.out.println(stack);
-        sortStackRecursive(stack);
+        sortStack(stack);
 
         System.out.println(stack);
 
@@ -22,7 +21,6 @@ public class Challenge5 {
 
     public static void sortStack(Stack<Integer> stack) {
         Stack<Integer> temp = new Stack<>(stack.getMaxSize());
-
         while (!stack.isEmpty()) {
             int tmp = stack.pop();
 
@@ -36,6 +34,7 @@ public class Challenge5 {
         while (!temp.isEmpty()) {
             stack.push(temp.pop());
         }
+
     }
 
     public static Stack<Integer> sortStackRecursive(Stack<Integer> stack) {
