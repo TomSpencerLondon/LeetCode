@@ -7,8 +7,6 @@ public class Challenge7 {
 
     public static void main(String[] args) {
         // next greater element using stack
-        //
-
         System.out.println(Arrays.toString(nextGreaterElement(new int[]{1, 3, 8, 4, 10, 5})));
     }
 
