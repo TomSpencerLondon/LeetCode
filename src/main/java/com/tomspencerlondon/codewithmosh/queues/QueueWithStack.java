@@ -25,18 +25,11 @@ public class QueueWithStack<V> {
         if (isEmpty()) {
             throw new IllegalStateException();
         }
-        while (!mainStack.isEmpty()) {
-            temp.push(mainStack.pop());
-        }
 
-        V item = temp.pop();
-
-        while (!temp.isEmpty()) {
-            mainStack.push(temp.pop());
-        }
+        moveMainToTempStack();
 
         currentSize--;
-        return item;
+        return temp.pop();
     }
 
     public V peek() {
@@ -44,18 +37,18 @@ public class QueueWithStack<V> {
             throw new IllegalStateException();
         }
 
-        while (!mainStack.isEmpty()) {
-            temp.push(mainStack.pop());
-        }
-
-        V item = temp.peek();
-
-        while (!temp.isEmpty()) {
-            mainStack.push(temp.pop());
-        }
+        moveMainToTempStack();
 
         currentSize--;
-        return item;
+        return temp.peek();
+    }
+
+    private void moveMainToTempStack() {
+        if (temp.isEmpty()) {
+            while (!mainStack.isEmpty()) {
+                temp.push(mainStack.pop());
+            }
+        }
     }
 
     public boolean isEmpty() {
@@ -68,6 +61,7 @@ public class QueueWithStack<V> {
 
     @Override
     public String toString() {
-        return mainStack.toString();
+        moveMainToTempStack();
+        return temp.toString();
     }
 }
