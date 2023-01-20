@@ -27,6 +27,10 @@ public class ArrayQueue {
     }
 
     public int dequeue() {
+        if (isEmpty()) {
+            throw new IllegalStateException();
+        }
+
         int item = items[front];
         items[front] = 0;
         front = (front + 1) % capacity;
