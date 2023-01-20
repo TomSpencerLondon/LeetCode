@@ -23,14 +23,31 @@ public class Main {
 //        System.out.println(queue);
 
 
-        QueueWithStack queue = new QueueWithStack(4);
+//        QueueWithStack queue = new QueueWithStack(4);
+//
+//        queue.enqueue(10);
+//        queue.enqueue(20);
+//        queue.enqueue(30);
+//
+//        System.out.println(queue.dequeue());
+//
+//        System.out.println(queue);
 
+        QueueWithTwoStacks queue = new QueueWithTwoStacks();
         queue.enqueue(10);
         queue.enqueue(20);
         queue.enqueue(30);
 
-        System.out.println(queue.dequeue());
+        var first = queue.dequeue();
+        System.out.println(first);
 
-        System.out.println(queue);
+        var second = queue.dequeue();
+        System.out.println(second);
+
+        var third = queue.dequeue();
+        System.out.println(third);
+
+        queue.dequeue();
+
     }
 }
