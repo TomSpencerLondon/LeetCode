@@ -17,5 +17,7 @@ public class Main {
         System.out.println(front);
 
         System.out.println(queue);
+        queue.dequeue();
+        System.out.println(queue);
     }
 }

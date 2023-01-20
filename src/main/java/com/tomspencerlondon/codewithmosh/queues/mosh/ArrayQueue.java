@@ -4,21 +4,24 @@ import java.util.Arrays;
 
 public class ArrayQueue {
     private int[] items;
+    private int capacity;
     private int rear;
 
     private int front;
     private int count;
 
     public ArrayQueue(int capacity) {
+        this.capacity = capacity;
         this.items = new int[capacity];
     }
 
     public void enqueue(int item) {
-        if (count == items.length) {
+        if (isFull()) {
             throw new IllegalStateException();
         }
 
-        items[rear++] = item; // 5 [0 - 4]
+        rear = (rear + 1) % capacity;
+        items[rear] = item; // 5 [0 - 4]
 
         count++;
     }
@@ -26,8 +29,25 @@ public class ArrayQueue {
     public int dequeue() {
         int item = items[front];
         items[front] = 0;
+        front = (front + 1) % capacity;
         count--;
         return item;
+    }
+
+    public int peek() {
+        if (isEmpty()) {
+            throw new IllegalStateException();
+        }
+
+        return items[front];
+    }
+
+    public boolean isFull() {
+        return count == items.length;
+    }
+
+    public boolean isEmpty() {
+        return count == 0;
     }
 
     @Override
