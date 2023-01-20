@@ -32,12 +32,10 @@ public class JumpDmitriTom {
             return;
         }
 
-        for (int i = index + 1; i <= index + numbers[index]; i++) {
-            if (i > numbers.length) {
-                return;
-            }
+        for (int i = index + 1; i <= Math.min(index + numbers[index], numbers.length - 1); i++) {
             jumpAux(numbers, i);
             stack.pop();
         }
+
     }
 }
