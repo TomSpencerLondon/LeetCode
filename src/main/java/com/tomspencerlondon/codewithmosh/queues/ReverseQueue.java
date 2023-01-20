@@ -18,10 +18,6 @@ public class ReverseQueue {
     }
 
     public static void reverse(Queue<Integer> queue) {
-        // add
-        // remove
-        // isEmpty
-
         Stack<Integer> stack = new Stack<>();
 
         while (!queue.isEmpty()) {
