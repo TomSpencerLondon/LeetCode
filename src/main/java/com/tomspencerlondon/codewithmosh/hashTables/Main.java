@@ -31,5 +31,16 @@ public class Main {
         }
 
         System.out.println(map);
+
+        System.out.println(hash("123456-A"));
+    }
+
+    public static int hash(String key) {
+        int hash = 0;
+        for (char c : key.toCharArray()) {
+            hash += c;
+        }
+
+        return hash % 100;
     }
 }
