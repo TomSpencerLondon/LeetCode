@@ -33,6 +33,9 @@ public class Main {
         System.out.println(map);
 
         System.out.println(hash("123456-A"));
+
+        String str = "orange";
+        System.out.println(str.hashCode());
     }
 
     public static int hash(String key) {
