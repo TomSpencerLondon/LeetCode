@@ -13,8 +13,7 @@ public class FirstRepeatedCharacter {
 
     private static Character firstRepeatedCharacter(String input) {
         Set<Character> set = new HashSet<>();
-        for (int i = 0; i < input.length(); i++) {
-            char c = input.charAt(i);
+        for (char c : input.toCharArray()) {
             if (set.contains(c)) {
                 return c;
             }
