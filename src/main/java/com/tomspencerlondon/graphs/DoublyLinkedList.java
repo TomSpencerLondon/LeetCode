@@ -1,6 +1,8 @@
 package com.tomspencerlondon.graphs;
 
 public class DoublyLinkedList<T> {
+
+    //Node inner class for DLL
     public class Node {
         public T data;
         public Node nextNode;
@@ -38,30 +40,28 @@ public class DoublyLinkedList<T> {
     public void insertAtHead(T data) {
         Node newNode = new Node();
         newNode.data = data;
-        newNode.nextNode = this.headNode;
+        newNode.nextNode = this.headNode; //Linking newNode to head's nextNode
         newNode.prevNode = null;
-
         if (headNode != null) {
             headNode.prevNode = newNode;
         } else {
             tailNode = newNode;
         }
 
-        this.headNode = headNode;
+        this.headNode = newNode;
         size++;
     }
 
     public void insertAtEnd(T data) {
-        if (isEmpty()) {
+        if(isEmpty()) {
             insertAtHead(data);
             return;
         }
-
         Node newNode = new Node();
         newNode.data = data;
         newNode.nextNode = null;
         newNode.prevNode = tailNode;
-        tailNode.prevNode = newNode;
+        tailNode.nextNode = newNode;
         tailNode = newNode;
         size++;
     }
@@ -73,10 +73,10 @@ public class DoublyLinkedList<T> {
         }
 
         Node temp = headNode;
-        System.out.println("List : null <- ");
+        System.out.print("List : null <- ");
 
-        while(temp.nextNode != null) {
-            System.out.println(temp.data.toString() + " <-> ");
+        while (temp.nextNode != null) {
+            System.out.print(temp.data.toString() + " <-> ");
             temp = temp.nextNode;
         }
 
@@ -89,11 +89,10 @@ public class DoublyLinkedList<T> {
         }
 
         Node temp = tailNode;
-
-        System.out.println("List : null <- ");
+        System.out.print("List : null <- ");
 
         while (temp.prevNode != null) {
-            System.out.println(temp.data.toString() + " <-> ");
+            System.out.print(temp.data.toString() + " <-> ");
             temp = temp.prevNode;
         }
 
@@ -101,32 +100,26 @@ public class DoublyLinkedList<T> {
     }
 
     public void deleteAtHead() {
-        if (isEmpty()) {
+        if (isEmpty())
             return;
-        }
 
         headNode = headNode.nextNode;
-        if (headNode == null) {
+        if (headNode == null)
             tailNode = null;
-        } else {
+        else
             headNode.prevNode = null;
-        }
-
         size--;
     }
 
     public void deleteAtTail() {
-        if (isEmpty()) {
+        if (isEmpty())
             return;
-        }
         tailNode = tailNode.prevNode;
-
         if (tailNode == null) {
             headNode = null;
         } else {
             tailNode.nextNode = null;
         }
-
         size--;
     }
 }
