@@ -37,14 +37,15 @@ public class Main {
         String str = "orange";
         System.out.println(str.hashCode());
 
-        HashTable<String, Integer> hashTable = new HashTable<>();
+        HashTable<Integer, String> hashTable = new HashTable<>();
 
-        hashTable.put("Tom", 1);
-        hashTable.put("Richard", 2);
-        hashTable.put("Harry", 3);
+        hashTable.put(1, "Tom");
+        hashTable.put(2, "Richard");
+        hashTable.put(3, "David");
+        hashTable.put(3, "Harry");
 
         System.out.println(hashTable);
-        System.out.println(hashTable.get("Tom"));
+        System.out.println(hashTable.get(1));
     }
 
     public static int hash(String key) {
