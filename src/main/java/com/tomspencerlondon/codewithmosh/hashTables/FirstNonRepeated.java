@@ -28,6 +28,6 @@ public class FirstNonRepeated {
             }
         }
 
-        return null;
+        return Character.MIN_VALUE;
     }
 }
