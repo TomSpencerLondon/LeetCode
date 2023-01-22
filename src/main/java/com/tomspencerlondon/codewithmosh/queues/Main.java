@@ -23,18 +23,26 @@ public class Main {
 //        queue.dequeue();
 //        System.out.println(queue);
 
-        PriorityQueue2 queue = new PriorityQueue2(5);
+//        PriorityQueue2 queue = new PriorityQueue2(5);
+//
+//        queue.enqueue(5);
+//        queue.enqueue(3);
+//        queue.enqueue(4);
+//        queue.enqueue(1);
+//        queue.enqueue(6);
+//
+//        System.out.println(queue);
+//
+//        while (!queue.isEmpty()) {
+//            System.out.println(queue.dequeue());
+//        }
 
-        queue.enqueue(5);
-        queue.enqueue(3);
-        queue.enqueue(4);
-        queue.enqueue(1);
-        queue.enqueue(6);
+        LinkedListQueue linkedListQueue = new LinkedListQueue();
+        linkedListQueue.enqueue(10);
+        linkedListQueue.enqueue(20);
+        linkedListQueue.enqueue(30);
+        System.out.println(linkedListQueue.peek());
+        System.out.println(linkedListQueue.getSize());
 
-        System.out.println(queue);
-
-        while (!queue.isEmpty()) {
-            System.out.println(queue.dequeue());
-        }
     }
 }
