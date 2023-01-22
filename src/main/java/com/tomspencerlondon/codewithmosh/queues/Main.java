@@ -37,12 +37,21 @@ public class Main {
 //            System.out.println(queue.dequeue());
 //        }
 
-        LinkedListQueue linkedListQueue = new LinkedListQueue();
-        linkedListQueue.enqueue(10);
-        linkedListQueue.enqueue(20);
-        linkedListQueue.enqueue(30);
-        System.out.println(linkedListQueue.peek());
-        System.out.println(linkedListQueue.getSize());
+//        LinkedListQueue linkedListQueue = new LinkedListQueue();
+//        linkedListQueue.enqueue(10);
+//        linkedListQueue.enqueue(20);
+//        linkedListQueue.enqueue(30);
+//        System.out.println(linkedListQueue.peek());
+//        System.out.println(linkedListQueue.getSize());
 
+        StackWithTwoQueues stack = new StackWithTwoQueues(6);
+
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println("Current size: " + stack.size());
     }
 }
