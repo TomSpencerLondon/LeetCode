@@ -43,6 +43,8 @@ public class Main {
         hashTable.put(2, "Richard");
         hashTable.put(3, "David");
         hashTable.put(3, "Harry");
+        hashTable.remove(3);
+        hashTable.put(3, "William");
 
         System.out.println(hashTable);
         System.out.println(hashTable.get(1));
