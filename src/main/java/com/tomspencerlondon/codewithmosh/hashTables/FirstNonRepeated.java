@@ -18,6 +18,8 @@ public class FirstNonRepeated {
             dups.put(c, dups.getOrDefault(c, 0) + 1);
         }
 
+        System.out.println(dups);
+
         for (int i = 0; i < input.length(); i++) {
             char c = input.charAt(i);
 
