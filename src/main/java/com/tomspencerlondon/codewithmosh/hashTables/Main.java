@@ -44,6 +44,7 @@ public class Main {
         hashTable.put("Harry", 3);
 
         System.out.println(hashTable);
+        System.out.println(hashTable.get("Tom"));
     }
 
     public static int hash(String key) {
