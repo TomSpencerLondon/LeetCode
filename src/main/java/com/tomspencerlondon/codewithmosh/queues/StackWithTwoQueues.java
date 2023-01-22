@@ -29,32 +29,42 @@ public class StackWithTwoQueues {
     }
 
     public void push(int data) {
-        if (isFull()) {
-            throw new IllegalStateException();
-        }
-        temp.add(data);
-
-        while (!main.isEmpty()) {
-            temp.add(main.remove());
-        }
-
-        Queue temporary = main;
-        this.main = temp;
-        this.temp = temporary;
-
+        main.add(data);
         this.currentSize++;
     }
 
     public int peek() {
-        return main.peek();
+        while (main.size() > 1) {
+            temp.add(main.remove());
+        }
+
+        this.currentSize--;
+        int result = main.peek();
+
+        Queue<Integer> temporary = main;
+        main = temp;
+        temp = temporary;
+
+        return result;
     }
 
     public int pop() {
         if (isEmpty()) {
             throw new IllegalStateException();
         }
+
+        while (main.size() > 1) {
+            temp.add(main.remove());
+        }
+
         this.currentSize--;
-        return main.remove();
+        int result = main.remove();
+
+        Queue<Integer> temporary = main;
+        main = temp;
+        temp = temporary;
+
+        return result;
     }
 
     public boolean isEmpty() {
