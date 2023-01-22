@@ -36,6 +36,14 @@ public class Main {
 
         String str = "orange";
         System.out.println(str.hashCode());
+
+        HashTable<String, Integer> hashTable = new HashTable<>();
+
+        hashTable.put("Tom", 1);
+        hashTable.put("Richard", 2);
+        hashTable.put("Harry", 3);
+
+        System.out.println(hashTable);
     }
 
     public static int hash(String key) {
