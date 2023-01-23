@@ -2,7 +2,7 @@ package com.tomspencerlondon.codewithmosh.linkedlists;
 
 import java.util.NoSuchElementException;
 
-public class LinkedList {
+public class LinkedList<E> {
     private Node first;
     private Node last;
     int size;
@@ -245,8 +245,8 @@ public class LinkedList {
         return false;
     }
 
-    public static LinkedList createWithLoop() {
-        LinkedList list = new LinkedList();
+    public LinkedList<E> createWithLoop() {
+        LinkedList<E> list = new LinkedList<E>();
         list.addLast(10);
         list.addLast(20);
         list.addLast(30);

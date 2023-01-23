@@ -1,7 +1,5 @@
 package com.tomspencerlondon.codewithmosh.linkedlists;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
 //        LinkedList list = new LinkedList();
@@ -31,8 +29,8 @@ public class Main {
 //        list.reverse();
 //        System.out.println(list.kthNodeFromEnd(1));
         System.out.println(list.printMiddle());
-
-        LinkedList loopList = LinkedList.createWithLoop();
+        LinkedList objectLinkedList = new LinkedList<>();
+        LinkedList loopList = objectLinkedList.createWithLoop();
 
         System.out.println(loopList.hasLoop());
 //        list.print();
