@@ -1,4 +1,5 @@
 package com.tomspencerlondon.codewithmosh.hashTables.mosh;
+import java.util.Arrays;
 import java.util.LinkedList;
 public class HashTable {
 
@@ -9,6 +10,11 @@ public class HashTable {
         public Entry(int key, String value) {
             this.key = key;
             this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return key + "," + value;
         }
     }
 
@@ -49,5 +55,10 @@ public class HashTable {
 
     private int hash(int key) {
         return key % entries.length;
+    }
+
+
+    public String toString() {
+        return Arrays.toString(entries);
     }
 }
