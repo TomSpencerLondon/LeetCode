@@ -18,6 +18,25 @@ public class HashTable {
         }
     }
 
+    public void remove(int key) {
+        var index = hash(key);
+
+        var bucket = entries[index];
+
+        if (bucket == null) {
+            throw new IllegalStateException();
+        }
+
+        for (Entry entry : bucket) {
+            if (entry.key == key) {
+                bucket.remove();
+                return;
+            }
+        }
+
+        throw new IllegalStateException();
+    }
+
     private LinkedList<Entry>[] entries = new LinkedList[5];
 
     public void put(int key, String value) {
