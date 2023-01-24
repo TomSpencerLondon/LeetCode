@@ -1,5 +1,6 @@
 package com.tomspencerlondon.codewithmosh.hashTables.mosh;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,10 +13,29 @@ public class Exercises {
         System.out.println(mostRepeated(ints));
 
         // number of unique pairs of integers with difference k
-
         int[] numbers = {1, 7, 5, 9, 2, 12, 3};
-
         System.out.println(numberOfUniquePairs(numbers, 2));
+
+        // return indices of 2 numbers that add to target
+        int[] array = {2, 7, 11, 15};
+
+        System.out.println(Arrays.toString(twoSum(array, 9)));
+    }
+
+    private static int[] twoSum(int[] array, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < array.length; i++) {
+            int number = array[i];
+            int diff = k - number;
+            if (map.containsKey(diff)) {
+                return new int[]{map.get(diff), i};
+            }
+
+            map.put(number, i);
+        }
+
+        return new int[]{-1, -1};
     }
 
     private static int numberOfUniquePairs(int[] numbers, int k) {
