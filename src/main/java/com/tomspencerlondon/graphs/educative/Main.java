@@ -6,7 +6,7 @@ import java.util.Queue;
 public class Main {
 
     public static void main(String[] args) {
-        Graph graph = new Graph(51);
+        Graph graph = new Graph(17);
         graph.addEdge(0, 1);
         graph.addEdge(0, 2);
         graph.addEdge(1, 3);
@@ -19,8 +19,8 @@ public class Main {
         graph.addEdge(4, 8);
         graph.addEdge(4, 9);
         graph.addEdge(7, 10);
-        graph.addEdge(5, 40);
-        graph.addEdge(9, 50);
+        graph.addEdge(5, 15);
+        graph.addEdge(9, 16);
         graph.printGraph();
         System.out.println(bfs(graph));
     }
