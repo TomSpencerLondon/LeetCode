@@ -18,6 +18,8 @@ public class Main {
         tree.traverseLevelOrder();
         System.out.println("----");
         tree.traversePreOrder();
+        System.out.println("----");
+        tree.traverseInOrder();
         System.out.println(tree.find(10));
 
         print(new PrintStream(System.out), tree.root);

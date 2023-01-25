@@ -109,6 +109,20 @@ public class Tree {
         traversePreOrder(root.rightChild);
     }
 
+    public void traverseInOrder() {
+        traverseInOrder(root);
+    }
+
+    public void traverseInOrder(Node root) {
+        if (root == null) {
+            return;
+        }
+
+        traverseInOrder(root.leftChild);
+        System.out.println(root.value);
+        traverseInOrder(root.rightChild);
+    }
+
     private int height(Node root) {
         if (root == null) {
             return -1;
