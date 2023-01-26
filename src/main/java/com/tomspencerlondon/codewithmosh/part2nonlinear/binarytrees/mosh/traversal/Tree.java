@@ -120,12 +120,57 @@ public class Tree {
     if (root == null) {
       return -1;
     }
-    if (root.leftChild == null && root.rightChild == null) {
+    if (isLeaf(root)) {
       return 0;
     }
 
     return 1 + Math.max(height(root.leftChild), height(root.rightChild));
   }
 
+  // O(log n)
+  public int min() {
+    if (root == null) {
+      throw new IllegalStateException();
+    }
+
+    Node current = root;
+    Node last = current;
+    while (current != null) {
+      last = current;
+      current = current.leftChild;
+    }
+    return last.value;
+  }
+
+  public boolean equals(Tree tree) {
+    return equals(root, tree.root);
+  }
+
+  private boolean equals(Node one, Node two) {
+    if (one == null && two == null) {
+      return true;
+    }
+    if (one.value != two.value) {
+      return false;
+    }
+
+    return equals(one.leftChild, two.leftChild) && equals(one.rightChild, two.rightChild);
+  }
+
+  // O(n)
+  private int min(Node root) {
+    if (isLeaf(root)) {
+      return root.value;
+    }
+
+    int left = min(root.leftChild);
+    int right = min(root.rightChild);
+
+    return Math.min(root.value, Math.min(left, right));
+  }
+
+  private static boolean isLeaf(Node root) {
+    return root.leftChild == null && root.rightChild == null;
+  }
 
 }
