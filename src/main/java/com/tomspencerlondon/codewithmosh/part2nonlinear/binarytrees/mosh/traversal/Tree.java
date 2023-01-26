@@ -1,5 +1,8 @@
 package com.tomspencerlondon.codewithmosh.part2nonlinear.binarytrees.mosh.traversal;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Tree {
   private class Node {
     private int value;
@@ -171,6 +174,26 @@ public class Tree {
 
     return isBinarySearchTree(root.leftChild, min, root.value - 1) &&
             isBinarySearchTree(root.rightChild, root.value + 1, max);
+  }
+
+  public List<Integer> printNodesAtDistance(int distance) {
+    ArrayList<Integer> integers = new ArrayList<Integer>();
+    printNodesAtDistance(root, distance, integers);
+
+    return integers;
+  }
+
+  private void printNodesAtDistance(Node root, int distance, List<Integer> list) {
+    if (root == null) {
+      return;
+    }
+    if (distance == 0) {
+      list.add(root.value);
+      return;
+    }
+
+    printNodesAtDistance(root.leftChild, distance - 1, list);
+    printNodesAtDistance(root.rightChild, distance - 1, list);
   }
 
   private boolean equals(Node first, Node second) {

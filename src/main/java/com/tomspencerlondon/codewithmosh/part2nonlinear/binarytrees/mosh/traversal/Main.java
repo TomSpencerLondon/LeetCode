@@ -1,5 +1,7 @@
 package com.tomspencerlondon.codewithmosh.part2nonlinear.binarytrees.mosh.traversal;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         // equals(Tree): boolean
@@ -37,6 +39,12 @@ public class Main {
 
         tree2.swapRoot();
         System.out.println(tree2.isBinarySearchTree());
+
+        System.out.println("---");
+
+        List<Integer> list = tree2.printNodesAtDistance(1);
+
+        System.out.println(list);
     }
 }
 
