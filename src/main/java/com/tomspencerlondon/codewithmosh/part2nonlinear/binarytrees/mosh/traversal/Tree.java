@@ -142,19 +142,20 @@ public class Tree {
     return last.value;
   }
 
-  public boolean equals(Tree tree) {
-    return equals(root, tree.root);
+  public boolean equals(Tree other) {
+    return equals(root, other.root);
   }
 
-  private boolean equals(Node one, Node two) {
-    if (one == null && two == null) {
+  private boolean equals(Node first, Node second) {
+    if (first == null && second == null) {
       return true;
     }
-    if (one.value != two.value) {
+    if (first.value != second.value) {
       return false;
     }
 
-    return equals(one.leftChild, two.leftChild) && equals(one.rightChild, two.rightChild);
+    return equals(first.leftChild, second.leftChild) &&
+            equals(first.rightChild, second.rightChild);
   }
 
   // O(n)
