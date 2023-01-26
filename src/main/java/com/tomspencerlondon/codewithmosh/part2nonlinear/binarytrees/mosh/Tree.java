@@ -113,7 +113,7 @@ public class Tree {
         traverseInOrder(root);
     }
 
-    public void traverseInOrder(Node root) {
+    private void traverseInOrder(Node root) {
         if (root == null) {
             return;
         }
@@ -121,6 +121,20 @@ public class Tree {
         traverseInOrder(root.leftChild);
         System.out.println(root.value);
         traverseInOrder(root.rightChild);
+    }
+
+    public void traversePostOrder() {
+        traversePostOrder(root);
+    }
+
+    private void traversePostOrder(Node root) {
+        if (root == null) {
+            return;
+        }
+
+        traversePostOrder(root.leftChild);
+        traversePostOrder(root.rightChild);
+        System.out.println(root.value);
     }
 
     private int height(Node root) {
