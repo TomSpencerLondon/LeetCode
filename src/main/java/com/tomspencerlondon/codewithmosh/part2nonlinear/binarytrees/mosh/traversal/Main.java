@@ -12,6 +12,10 @@ public class Main {
         tree.insert(10);
 
         tree.traversePreOrder();
+        System.out.println("---");
+        tree.traversePostOrder();
+        System.out.println("---");
+        tree.traverseInOrder();
     }
 }
 
