@@ -16,6 +16,9 @@ public class Main {
         tree.traversePostOrder();
         System.out.println("---");
         tree.traverseInOrder();
+
+        System.out.println("---");
+        System.out.println(tree.height());
     }
 }
 
