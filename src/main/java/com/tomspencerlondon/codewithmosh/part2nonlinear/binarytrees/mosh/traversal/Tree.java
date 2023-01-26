@@ -143,6 +143,10 @@ public class Tree {
   }
 
   public boolean equals(Tree other) {
+    if (other == null) {
+      return false;
+    }
+
     return equals(root, other.root);
   }
 
@@ -150,12 +154,15 @@ public class Tree {
     if (first == null && second == null) {
       return true;
     }
-    if (first.value != second.value) {
-      return false;
+
+    if (first != null && second != null) {
+      return first.value == second.value &&
+              equals(first.leftChild, second.leftChild) &&
+              equals(first.rightChild, second.rightChild);
     }
 
-    return equals(first.leftChild, second.leftChild) &&
-            equals(first.rightChild, second.rightChild);
+    return false;
+
   }
 
   // O(n)
