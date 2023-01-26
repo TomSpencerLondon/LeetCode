@@ -29,12 +29,14 @@ public class Main {
 
         System.out.println("---");
         System.out.println(tree.height());
-
         System.out.println("---");
         System.out.println(tree.min());
 
         System.out.println("----");
         System.out.println(tree.equals(tree2));
+
+        tree2.swapRoot();
+        System.out.println(tree2.isBinarySearchTree());
     }
 }
 
