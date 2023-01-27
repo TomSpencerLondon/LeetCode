@@ -45,6 +45,9 @@ public class Main {
         List<Integer> list = tree2.printNodesAtDistance(1);
 
         System.out.println(list);
+
+        System.out.println("*****");
+        tree.traverseLevelOrder();
     }
 }
 

@@ -2,7 +2,7 @@ package com.tomspencerlondon.graphs.educative.challenge3;
 
 public class Stack<V> {
     private int maxSize;
-    private int top;
+    protected int top;
     protected V[] array;
     private int currentSize;
 
