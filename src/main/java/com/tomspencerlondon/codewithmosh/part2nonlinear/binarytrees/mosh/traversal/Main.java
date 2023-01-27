@@ -52,6 +52,12 @@ public class Main {
         System.out.println("-------");
 
         System.out.println(tree.size());
+        System.out.println("-------");
+
+        System.out.println(tree.countLeaves());
+        System.out.println("-------");
+
+        System.out.println(tree.contains(10));
     }
 }
 
