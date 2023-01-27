@@ -236,6 +236,28 @@ public class Tree {
     return contains(root.leftChild, value) || contains(root.rightChild, value);
   }
 
+  public boolean areSibling(int first, int second) {
+    return areSibling(root, first, second);
+  }
+
+  private boolean areSibling(Node root, int first, int second) {
+    if (root == null) {
+      return false;
+    }
+
+    boolean areSibling = false;
+
+    if (root.leftChild != null && root.rightChild != null) {
+      areSibling = (root.leftChild.value == first && root.rightChild.value == second) ||
+              (root.rightChild.value == first && root.leftChild.value == second);
+    }
+
+    return areSibling ||
+            areSibling(root.leftChild, first, second) ||
+            areSibling(root.rightChild, first, second);
+  }
+
+
   public List<Integer> getNodesAtDistance(int distance) {
     List<Integer> list = new ArrayList<>();
     getNodesAtDistance(root, distance, list);
