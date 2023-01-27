@@ -196,6 +196,23 @@ public class Tree {
     printNodesAtDistance(root.rightChild, distance - 1, list);
   }
 
+//  public void traverseLevelOrder() {
+//    for (int i = 0; i <= height(); i++) {
+//      for (var value : getNodesAtDistance(i)) {
+//        System.out.println(value);
+//      }
+//    }
+//  }
+
+//  public List<Integer> getNodesAtDistance(int distance) {
+//    List<Integer> list = new ArrayList<>();
+//    getNodesAtDistance()
+//  }
+//
+//  private void getNodesAtDistance(Node root, int distance, List<Integer> list) {
+//
+//  }
+
   private boolean equals(Node first, Node second) {
     if (first == null && second == null) {
       return true;
