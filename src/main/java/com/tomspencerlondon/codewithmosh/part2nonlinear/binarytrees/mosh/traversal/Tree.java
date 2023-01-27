@@ -257,6 +257,35 @@ public class Tree {
             areSibling(root.rightChild, first, second);
   }
 
+  public List<Integer> getAncestors(int value) {
+    ArrayList<Integer> list = new ArrayList<>();
+    getAncestors(root, value, list);
+    return list;
+  }
+
+  private boolean getAncestors(Node root, int value, ArrayList<Integer> list) {
+    // traverse tree until we find target value
+    // If we find the target value, we return true without adding the current node
+    // to the list; otherwise, if we ask for ancestors of 5, 5 will also be added
+    // to the list
+
+    if (root == null) {
+      return false;
+    }
+
+    if (root.value == value) {
+      return true;
+    }
+
+    if (getAncestors(root.leftChild, value, list) ||
+        getAncestors(root.rightChild, value, list)) {
+      list.add(root.value);
+      return true;
+    }
+
+    return false;
+  }
+
 
   public List<Integer> getNodesAtDistance(int distance) {
     List<Integer> list = new ArrayList<>();

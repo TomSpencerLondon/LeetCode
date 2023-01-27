@@ -62,6 +62,9 @@ public class Main {
         System.out.println("****");
 
         System.out.println(tree.areSibling(4, 9));
+        System.out.println("****");
+
+        System.out.println(tree.getAncestors(10));
     }
 }
 
