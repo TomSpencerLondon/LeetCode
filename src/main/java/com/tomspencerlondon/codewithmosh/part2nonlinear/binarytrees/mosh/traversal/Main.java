@@ -48,6 +48,10 @@ public class Main {
 
         System.out.println("*****");
         tree.traverseLevelOrder();
+
+        System.out.println("-------");
+
+        System.out.println(tree.size());
     }
 }
 
