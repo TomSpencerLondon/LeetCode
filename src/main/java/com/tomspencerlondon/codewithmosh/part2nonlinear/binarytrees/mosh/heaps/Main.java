@@ -1,5 +1,7 @@
 package com.tomspencerlondon.codewithmosh.part2nonlinear.binarytrees.mosh.heaps;
 
+import com.tomspencerlondon.codewithmosh.part2nonlinear.binarytrees.mosh.heaps.heapify.MaxHeap;
+
 import java.util.Arrays;
 
 public class Main {
@@ -42,5 +44,7 @@ public class Main {
         }
 
         System.out.println(Arrays.toString(numbers));
+
+        System.out.println(MaxHeap.getKthLargest(numbers, 6));
     }
 }
