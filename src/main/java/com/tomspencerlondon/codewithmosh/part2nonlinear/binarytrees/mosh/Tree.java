@@ -156,4 +156,40 @@ public class Tree {
         return node.leftChild == null &&
                 node.rightChild == null;
     }
+
+    public boolean isBalanced() {
+        return isBalanced(root);
+    }
+
+    private boolean isBalanced(Node root) {
+        if (root == null) {
+            return true;
+        }
+
+        int balanceFactor = height(root.leftChild) - height(root.rightChild);
+
+        return Math.abs(balanceFactor) <= 1 &&
+                isBalanced(root.leftChild) &&
+                isBalanced(root.rightChild);
+    }
+
+    public boolean isPerfect() {
+        return size() == (Math.pow(2, height() + 1) - 1);
+    }
+
+    public int size() {
+        return size(root);
+    }
+
+    private int size(Node root) {
+        if (root == null) {
+            return 0;
+        }
+
+        if (isLeaf(root)) {
+            return 1;
+        }
+
+        return 1 + size(root.leftChild) + size(root.rightChild);
+    }
 }
