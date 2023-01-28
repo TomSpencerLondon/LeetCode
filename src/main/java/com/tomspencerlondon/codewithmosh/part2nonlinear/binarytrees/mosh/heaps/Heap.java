@@ -47,7 +47,7 @@ public class Heap {
         if (!hasRightChild(index)) {
             return leftChildIndex(index);
         }
-        return (leftChild(index) > rightChildIndex(index)) ?
+        return (leftChild(index) > rightChild(index)) ?
                 leftChildIndex(index) :
                 rightChildIndex(index);
     }

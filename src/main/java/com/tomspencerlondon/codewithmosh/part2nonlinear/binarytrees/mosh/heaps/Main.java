@@ -1,5 +1,7 @@
 package com.tomspencerlondon.codewithmosh.part2nonlinear.binarytrees.mosh.heaps;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         //      20 (0)
@@ -14,17 +16,31 @@ public class Main {
         // int[]
         // insert(int)
         // remove()
+//
+//        Heap heap = new Heap();
+//
+//        heap.insert(10);
+//        heap.insert(5);
+//        heap.insert(17);
+//        heap.insert(4);
+//        heap.insert(22);
+//
+//        heap.remove();
+//
+//        System.out.println("done");
+
+        int[] numbers = {5, 3, 10, 1, 4, 2};
 
         Heap heap = new Heap();
 
-        heap.insert(10);
-        heap.insert(5);
-        heap.insert(17);
-        heap.insert(4);
-        heap.insert(22);
+        for (int number : numbers) {
+            heap.insert(number);
+        }
 
-        heap.remove();
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = heap.remove();
+        }
 
-        System.out.println("done");
+        System.out.println(Arrays.toString(numbers));
     }
 }
