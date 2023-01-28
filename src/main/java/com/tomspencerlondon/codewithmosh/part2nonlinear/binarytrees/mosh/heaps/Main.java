@@ -37,7 +37,7 @@ public class Main {
             heap.insert(number);
         }
 
-        for (int i = 0; i < numbers.length; i++) {
+        for (int i = numbers.length - 1; i >= 0; i--) {
             numbers[i] = heap.remove();
         }
 
