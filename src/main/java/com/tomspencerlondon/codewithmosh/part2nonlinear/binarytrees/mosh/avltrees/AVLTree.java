@@ -37,17 +37,48 @@ public class AVLTree {
             root.rightChild = insert(root.rightChild, value);
         }
 
-        root.height = Math.max(height(root.leftChild), height(root.rightChild)) + 1;
+        setHeight(root);
+        return balance(root);
+    }
 
-        balanceFactor = balanceFactor(root);
-
+    private AVLNode balance(AVLNode root) {
         if (isLeftHeavy(root)) {
-            System.out.println(root.value + " is left heavy");
+            if (balanceFactor(root.leftChild) < 0) {
+                root.leftChild = rotateLeft(root.leftChild);
+            }
+            return rotateRight(root);
         } else if (isRightHeavy(root)) {
-            System.out.println(root.value + " is right heavy");
+            if (balanceFactor(root.rightChild) > 0) {
+                root.rightChild = rotateRight(root.rightChild);
+            }
+            return rotateLeft(root);
         }
 
         return root;
+    }
+
+    private AVLNode rotateLeft(AVLNode root) {
+        AVLNode newRoot = root.rightChild;
+        root.rightChild = newRoot.leftChild;
+        newRoot.leftChild = root;
+        setHeight(root);
+        setHeight(newRoot);
+
+        return newRoot;
+    }
+
+    private AVLNode rotateRight(AVLNode root) {
+        AVLNode newRoot = root.leftChild;
+        root.leftChild = newRoot.rightChild;
+        newRoot.rightChild = root;
+        setHeight(root);
+        setHeight(newRoot);
+
+        return newRoot;
+    }
+
+    private void setHeight(AVLNode node) {
+         node.height = Math.max(height(node.leftChild), height(node.rightChild)) + 1;
     }
 
     private boolean isLeftHeavy(AVLNode node) {
@@ -59,7 +90,8 @@ public class AVLTree {
     }
 
     private int balanceFactor(AVLNode node) {
-        return (node == null) ? 0 : height(node.leftChild) - height(node.leftChild);
+        return (node == null) ? 0 :
+                height(node.leftChild) - height(node.rightChild);
     }
 
     private int height(AVLNode node) {
