@@ -1,33 +1,31 @@
 package com.tomspencerlondon.codewithmosh.part2nonlinear.binarytrees.mosh.avltrees;
 
-import com.tomspencerlondon.codewithmosh.part2nonlinear.binarytrees.mosh.traversal.Tree;
-
 public class AVLTree {
 
-    private class Node {
+    private class AVLNode {
         private int value;
-        private Node leftChild;
-        private Node rightChild;
+        private AVLNode leftChild;
+        private AVLNode rightChild;
 
-        public Node(int value) {
+        public AVLNode(int value) {
             this.value = value;
         }
 
         @Override
         public String toString() {
-            return "Node=" + value;
+            return "Value=" + value;
         }
     }
 
-    private Node root;
+    private AVLNode root;
 
     public void insert(int value) {
         root = insert(root, value);
     }
 
-    private Node insert(Node root, int value) {
+    private AVLNode insert(AVLNode root, int value) {
         if (root == null) {
-            return new Node(value);
+            return new AVLNode(value);
         }
 
         if (value < root.value) {
