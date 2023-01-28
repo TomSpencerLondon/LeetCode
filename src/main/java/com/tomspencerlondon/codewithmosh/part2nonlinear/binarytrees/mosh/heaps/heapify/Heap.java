@@ -116,4 +116,26 @@ public class Heap {
 
         return items[0];
     }
+
+    public static boolean isMaxHeap(int[] array) {
+        return isMaxHeap(array, 0);
+    }
+
+    private static boolean isMaxHeap(int[] array, int index) {
+        int lastParentIndex = (array.length - 2) / 2;
+
+        if (index > lastParentIndex) {
+            return true;
+        }
+
+        int leftChildIndex = index * 2 + 1;
+        int rightChildIndex = index * 2 + 2;
+
+        boolean isValidParent = array[index] >= array[leftChildIndex] &&
+                array[index] >= array[rightChildIndex];
+
+        return isValidParent &&
+                isMaxHeap(array, leftChildIndex) &&
+                isMaxHeap(array, rightChildIndex);
+    }
 }
