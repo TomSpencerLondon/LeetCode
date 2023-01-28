@@ -98,7 +98,7 @@ public class MinHeap {
         return isValid;
     }
 
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         return size == 0;
     }
 
