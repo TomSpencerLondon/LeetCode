@@ -1,6 +1,8 @@
 package com.tomspencerlondon.codewithmosh.part2nonlinear.binarytrees.mosh.tries;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Trie {
@@ -115,4 +117,70 @@ public class Trie {
         }
     }
 
+    public List<String> findWords(String prefix) {
+        List<String> words = new ArrayList<>();
+        Node lastNode = findLastNodeOf(prefix);
+
+        findWords(lastNode, prefix, words);
+
+        return words;
+    }
+
+    private void findWords(Node root, String prefix, List<String> words) {
+        if (root == null) {
+            return;
+        }
+        if (root.isEndofWord) {
+            words.add(prefix);
+        }
+
+        for (Node child : root.getChildren()) {
+            findWords(child, prefix + child.value, words);
+        }
+    }
+
+    private Node findLastNodeOf(String prefix) {
+        if (prefix == null) {
+            return null;
+        }
+        Node current = root;
+        for (char ch : prefix.toCharArray()) {
+            Node child = current.getChild(ch);
+
+            if (child == null) {
+                return null;
+            }
+
+            current = child;
+        }
+
+        return current;
+    }
+
+    public boolean containsRecursive(String word) {
+        if (word == null) {
+            return false;
+        }
+
+        return containsRecursive(root, word, 0);
+    }
+
+    private boolean containsRecursive(Node root, String word, int index) {
+        if (index == word.length()) {
+            return root.isEndofWord;
+        }
+
+        if (root == null) {
+            return false;
+        }
+
+        char ch = word.charAt(index);
+        Node child = root.getChild(ch);
+
+        if (child == null) {
+            return false;
+        }
+
+        return containsRecursive(child, word, index + 1);
+    }
 }
