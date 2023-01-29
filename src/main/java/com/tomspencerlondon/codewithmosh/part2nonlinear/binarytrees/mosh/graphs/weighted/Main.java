@@ -11,8 +11,8 @@ public class Main {
 
         graph.addEdge("A", "B", 1);
         graph.addEdge("B", "C", 2);
-        graph.addEdge("A", "C", 10);
+        graph.addEdge("C", "A", 2);
 
-        System.out.println(graph.getShortestPath("A", "C"));
+        System.out.println(graph.hasCycle());
     }
 }
