@@ -1,9 +1,6 @@
 package com.tomspencerlondon.codewithmosh.part2nonlinear.binarytrees.mosh.tries;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Trie {
 
@@ -182,5 +179,66 @@ public class Trie {
         }
 
         return containsRecursive(child, word, index + 1);
+    }
+
+    public int countWords() {
+        return countWords(root);
+    }
+
+    private int countWords(Node root) {
+        int total = 0;
+
+        if (root.isEndofWord) {
+            total++;
+        }
+
+        for (Node child : root.getChildren()) {
+            total += countWords(child);
+        }
+
+        return total;
+    }
+
+    public static String longestCommonPrefix(String[] words){
+        if (words == null) {
+            return "";
+        }
+        Trie trie = new Trie();
+        for (String word : words) {
+            trie.insert(word);
+        }
+
+        StringBuilder prefix = new StringBuilder();
+        int maxChars = getShortest(words).length();
+        Node current = trie.root;
+
+        while (prefix.length() < maxChars) {
+            Node[] children = current.getChildren();
+
+            if (children.length != 1) {
+                break;
+            }
+
+            current = children[0];
+            prefix.append(current.value);
+        }
+
+        return prefix.toString();
+    }
+
+    private static String getShortest(String[] words) {
+        if (words == null || words.length == 0) {
+            return "";
+        }
+
+        String shortest = words[0];
+
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() < shortest.length()) {
+                shortest = words[i];
+            }
+        }
+
+        return shortest;
     }
 }

@@ -28,6 +28,9 @@ public class Main {
 
         List<String> words = trie.findWords(null);
 
+        System.out.println(trie.countWords());
         System.out.println(words);
+
+        System.out.println(Trie.longestCommonPrefix(new String[]{"Hello", "Hell", "Helsinki"}));
     }
 }
