@@ -1,53 +1,45 @@
 package com.tomspencerlondon.graphs.educative.challenge3;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class CheckCycle2 {
     public static boolean detectCycle(Graph g) {
-        int num_of_vertices = g.vertices;
+        System.out.println("\nStarted graph: ");
+        // Write -- Your -- Code
+        Set<Integer> visiting = new HashSet<>();
+        Set<Integer> visited = new HashSet<>();
 
-        // Boolean Array to hold the history of visited nodes (default false)
-        boolean[] visited = new boolean[num_of_vertices];
-
-        // Holds a flag if the node is currently in Stack or not (default false)
-        boolean[] stackFlag = new boolean[num_of_vertices];
-
-        for (int i = 0; i < num_of_vertices; i++) {
-            if (cyclic(g, i, visited, stackFlag)) {
+        for (int i = 0; i < g.vertices; i++) {
+            if (hasCycle(g, i, visiting, visited)) {
                 return true;
             }
+            System.out.println("\n---");
         }
-
         return false;
     }
 
-    private static boolean cyclic(Graph g, int v, boolean[] visited, boolean[] stackFlag) {
-        // if node is currently in stack that means we have found a cycle
-        if (stackFlag[v]) {
-            return true;
-        }
+    private static boolean hasCycle(Graph g, int v, Set<Integer> visiting, Set<Integer> visited) {
+       visiting.add(v);
 
-        // if it is already visited (and not in stack) then there is no cycle
-        if (visited[v]) {
-            return false;
-        }
+        DoublyLinkedList<Integer>.Node headNode = g.adjacencyList[v].headNode;
 
-        visited[v] = true;
-        stackFlag[v] = true;
+        while (headNode != null) {
+            Integer data = headNode.data;
+            if (!visited.contains(data)) {
+                if (visiting.contains(data)) {
+                    return true;
+                }
+                if (hasCycle(g, data, visiting, visited)) {
+                    return true;
+                }
 
-        // Check adjacency of list of the node
-        DoublyLinkedList<Integer>.Node temp = null;
-
-        if (g.adjacencyList[v] != null) {
-            temp = g.adjacencyList[v].headNode;
-        }
-
-        while (temp != null) {
-            if (cyclic(g, temp.data, visited, stackFlag)) {
-                return true;
+                visiting.remove(data);
+                visited.remove(data);
             }
 
-            temp = temp.nextNode;
+            headNode = headNode.nextNode;
         }
-        stackFlag[v] = false;
 
         return false;
     }
