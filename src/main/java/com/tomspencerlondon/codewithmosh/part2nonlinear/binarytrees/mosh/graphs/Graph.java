@@ -88,6 +88,36 @@ public class Graph {
         adjacencyList.get(fromNode).remove(toNode);
     }
 
+    public void traverseBreadthFirst(String root) {
+        Node node = nodes.get(root);
+        if (node == null) {
+            return;
+        }
+
+        Set<Node> visited = new HashSet<>();
+        Queue<Node> queue = new ArrayDeque<>();
+
+        queue.add(node);
+
+        while (!queue.isEmpty()) {
+            Node current = queue.remove();
+
+            if (visited.contains(current)) {
+                continue;
+            }
+
+            System.out.println(current);
+            visited.add(current);
+
+            for (Node neighbour : adjacencyList.get(current)) {
+                if (!visited.contains(neighbour)) {
+                    queue.add(neighbour);
+                }
+            }
+        }
+
+    }
+
     public void traverseDepthFirst(String root) {
         Node node = nodes.get(root);
         if (node == null) {
