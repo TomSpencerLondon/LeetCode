@@ -182,4 +182,48 @@ public class WeightedGraph {
 
         return false;
     }
+
+    public WeightedGraph getMinimumSpanningTree() {
+        WeightedGraph tree = new WeightedGraph();
+
+        if(nodes.isEmpty()) {
+            return tree;
+        }
+
+        PriorityQueue<Edge> edges = new PriorityQueue<>(
+                Comparator.comparingInt(e -> e.weight)
+        );
+
+        Node startNode = nodes.values().iterator().next();
+        edges.addAll(startNode.getEdges());
+        tree.addNode(startNode.label);
+
+        if (edges.isEmpty()) {
+            return tree;
+        }
+
+        while (tree.nodes.size() < nodes.size()) {
+            Edge minimumEdge = edges.remove();
+            Node nextNode = minimumEdge.to;
+
+            if (tree.containsNode(nextNode.label)) {
+                continue;
+            }
+
+            tree.addNode(nextNode.label);
+            tree.addEdge(minimumEdge.from.label, nextNode.label, minimumEdge.weight);
+
+            for (Edge edge : nextNode.getEdges()) {
+                if (!tree.containsNode(edge.to.label)) {
+                    edges.add(edge);
+                }
+            }
+        }
+
+        return tree;
+    }
+
+    public boolean containsNode(String label) {
+        return nodes.containsKey(label);
+    }
 }
