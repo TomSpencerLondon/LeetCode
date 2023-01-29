@@ -20,17 +20,15 @@ public class Main {
 //        graph.traverseBreadthFirst("A");
 
         Graph graph = new Graph();
-        graph.addNode("X");
         graph.addNode("A");
         graph.addNode("B");
-        graph.addNode("P");
+        graph.addNode("C");
+        graph.addNode("D");
 
-        graph.addEdge("X", "A");
-        graph.addEdge("X", "B");
-        graph.addEdge("A", "P");
-        graph.addEdge("B", "P");
-
-        List<String> list = graph.topologicalSort();
-        System.out.println(list);
+        graph.addEdge("A", "B");
+        graph.addEdge("B", "C");
+        graph.addEdge("C", "A");
+        graph.addEdge("D", "A");
+        System.out.println(graph.hasCycle());
     }
 }
