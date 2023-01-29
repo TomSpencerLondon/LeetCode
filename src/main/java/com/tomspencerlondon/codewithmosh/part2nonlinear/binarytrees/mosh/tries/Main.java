@@ -10,7 +10,12 @@ public class Main {
 //        System.out.println(trie.contains(null));
 
         trie.insert("care");
+        trie.insert("car");
+        trie.remove("care");
+        trie.remove("book");
+        trie.remove(null);
 
-        trie.traverse();
+        System.out.println(trie.contains("car"));
+        System.out.println(trie.contains("care"));
     }
 }
