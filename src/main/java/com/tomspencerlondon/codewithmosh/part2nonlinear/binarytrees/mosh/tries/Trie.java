@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Trie {
+
     private class Node {
         private char value;
         private Map<Character, Node> children = new HashMap<>();
@@ -14,7 +15,7 @@ public class Trie {
         }
 
         public boolean hasChild(char ch) {
-            return children.get(ch) == null;
+            return children.containsKey(ch);
         }
 
         @Override
@@ -43,6 +44,24 @@ public class Trie {
             current = current.getChild(ch);
         }
         current.isEndofWord = true;
+    }
+
+    public boolean contains(String word) {
+        if (word == null) {
+            return false;
+        }
+
+        Node current = root;
+
+        for (char ch : word.toCharArray()) {
+            if(!current.hasChild(ch)) {
+                return false;
+            }
+
+            current = current.getChild(ch);
+        }
+
+        return current.isEndofWord;
     }
 
 }

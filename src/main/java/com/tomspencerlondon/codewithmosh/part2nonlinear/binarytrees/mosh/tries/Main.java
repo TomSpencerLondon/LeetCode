@@ -6,8 +6,7 @@ public class Main {
         Trie trie = new Trie();
 
         trie.insert("cat");
-        trie.insert("can");
-
-        System.out.println("done");
+        trie.insert("canada");
+        System.out.println(trie.contains(null));
     }
 }
