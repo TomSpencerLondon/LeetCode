@@ -106,7 +106,7 @@ class CheckCycleTest {
 //|4| => [2] -> null
 
     @Test
-    void detectsNoLoopOnTreeWithNodeFourConnectingToTwo() {
+    void detectsLoopOnTreeWithNodeFourConnectingToTwo() {
         Graph graph = new Graph(5);
 
         graph.addEdge(0, 1);
@@ -167,6 +167,18 @@ class CheckCycleTest {
         g.addEdge(2, 3);
         g.addEdge(3, 4);
 
+
+        assertFalse(CheckCycle.detectCycle(g));
+    }
+
+    @Test
+    void sharedNodesWithSeparateStartingPoints() {
+        Graph g = new Graph(5);
+
+        g.addEdge(0, 1);
+        g.addEdge(1, 3);
+        g.addEdge(3, 4);
+        g.addEdge(2, 1);
 
         assertFalse(CheckCycle.detectCycle(g));
     }

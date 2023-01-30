@@ -1,7 +1,11 @@
 package com.tomspencerlondon.graphs.educative.challenge3;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Stack;
+
 class CheckCycle {
-    public static boolean detectCycle(Graph g){
+    public static boolean detectCycle(Graph g) {
         System.out.println("\nStarted graph: ");
         // Write -- Your -- Code
 
@@ -15,24 +19,27 @@ class CheckCycle {
     }
 
     public static boolean dfs(Graph g, int index) {
-        boolean[] visited = new boolean[g.vertices];
-
-        Stack<Integer> stack = new Stack<>(g.vertices);
+        Set<Integer> visiting = new HashSet<>();
+        Set<Integer> visited = new HashSet<>();
+        Stack<Integer> stack = new Stack<>();
         stack.push(index);
+        visiting.add(index);
         while (!stack.isEmpty()) {
             int current = stack.pop();
-            if (visited[current]) {
-                return true;
-            }
+            if (!visited.contains(current)) {
+                visited.add(current);
+                DoublyLinkedList<Integer>.Node headNode = g.adjacencyList[current].headNode;
 
-            System.out.print(current + " ");
-            DoublyLinkedList.Node headNode = g.adjacencyList[current].headNode;
+                while (headNode != null) {
+                    Integer data = headNode.data;
 
-            visited[current] = headNode != null;
-
-            while (headNode != null) {
-                stack.push((int) headNode.data);
-                headNode = headNode.nextNode;
+                    if (visiting.contains(data)) {
+                        return true;
+                    }
+                    stack.push(data);
+                    visiting.remove(data);
+                    headNode = headNode.nextNode;
+                }
             }
         }
 

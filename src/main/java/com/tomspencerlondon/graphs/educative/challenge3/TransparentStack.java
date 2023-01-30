@@ -9,7 +9,8 @@ public class TransparentStack<V> extends Stack<V> {
     }
 
     public boolean contains(V current) {
-        Stream<V> stream = Arrays.stream(array);
+        Stream<V> stream = Arrays.stream(
+                Arrays.copyOfRange(array, 0, top == -1 ? 0 : top + 1));
         return stream.anyMatch(current::equals);
     }
 }

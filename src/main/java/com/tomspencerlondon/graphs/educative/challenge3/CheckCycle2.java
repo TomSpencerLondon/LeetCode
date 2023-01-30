@@ -8,10 +8,9 @@ public class CheckCycle2 {
         System.out.println("\nStarted graph: ");
         // Write -- Your -- Code
         Set<Integer> visiting = new HashSet<>();
-        Set<Integer> visited = new HashSet<>();
 
         for (int i = 0; i < g.vertices; i++) {
-            if (hasCycle(g, i, visiting, visited)) {
+            if (hasCycle(g, i, visiting)) {
                 return true;
             }
             System.out.println("\n---");
@@ -19,24 +18,21 @@ public class CheckCycle2 {
         return false;
     }
 
-    private static boolean hasCycle(Graph g, int v, Set<Integer> visiting, Set<Integer> visited) {
+    private static boolean hasCycle(Graph g, int v, Set<Integer> visiting) {
        visiting.add(v);
 
         DoublyLinkedList<Integer>.Node headNode = g.adjacencyList[v].headNode;
 
         while (headNode != null) {
             Integer data = headNode.data;
-            if (!visited.contains(data)) {
                 if (visiting.contains(data)) {
                     return true;
                 }
-                if (hasCycle(g, data, visiting, visited)) {
+                if (hasCycle(g, data, visiting)) {
                     return true;
                 }
 
                 visiting.remove(data);
-                visited.remove(data);
-            }
 
             headNode = headNode.nextNode;
         }
