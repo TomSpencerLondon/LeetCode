@@ -19,11 +19,11 @@ class CheckCycle {
     }
 
     public static boolean dfs(Graph g, int index) {
-        Set<Integer> visiting = new HashSet<>();
         Set<Integer> visited = new HashSet<>();
+        Set<Integer> path = new HashSet<>();
         Stack<Integer> stack = new Stack<>();
         stack.push(index);
-        visiting.add(index);
+        path.add(index);
         while (!stack.isEmpty()) {
             int current = stack.pop();
             if (!visited.contains(current)) {
@@ -33,11 +33,11 @@ class CheckCycle {
                 while (headNode != null) {
                     Integer data = headNode.data;
 
-                    if (visiting.contains(data)) {
+                    if (path.contains(data)) {
                         return true;
                     }
                     stack.push(data);
-                    visiting.remove(data);
+                    path.remove(data);
                     headNode = headNode.nextNode;
                 }
             }
