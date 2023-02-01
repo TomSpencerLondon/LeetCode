@@ -27,11 +27,11 @@ public class CheckPaths {
                     if (data == destination) {
                         return true;
                     }
-                    stack.push(data);
-                    visited.add(data);
                 }
 
-                head = head.nextNode;
+                stack.push(data);
+                visited.add(data);
+
             }
         }
 
