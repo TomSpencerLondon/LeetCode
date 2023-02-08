@@ -43,6 +43,24 @@ public class BinarySearchTree {
             return null;
         }
 
+//        return iterativeSearch(value);
+
+        return recursiveSearch(root, value);
+    }
+
+    private Node recursiveSearch(Node currentNode, int value) {
+        if (currentNode == null || currentNode.getData() == value) {
+            return currentNode;
+        }
+
+        if (currentNode.getData() > value) {
+            return recursiveSearch(currentNode.getLeftChild(), value);
+        } else {
+            return recursiveSearch(currentNode.getRightChild(), value);
+        }
+    }
+
+    private Node iterativeSearch(int value) {
         Node currentNode = this.root;
 
         while (currentNode != null) {
