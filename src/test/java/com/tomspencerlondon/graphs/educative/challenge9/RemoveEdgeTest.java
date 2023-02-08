@@ -2,8 +2,7 @@ package com.tomspencerlondon.graphs.educative.challenge9;
 
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class RemoveEdgeTest {
 
@@ -18,6 +17,7 @@ class RemoveEdgeTest {
 
         int source = 1;
         RemoveEdge.removeEdge(graph, source, 2);
+        graph.printGraph();
         DoublyLinkedList<Integer>.Node headNode = graph.adjacencyList[source].headNode;
         assertNull(headNode);
     }
