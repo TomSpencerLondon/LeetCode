@@ -1,4 +1,4 @@
-package com.tomspencerlondon.trees.educative;
+package com.tomspencerlondon.trees.educative.insert;
 
 public class Node {
     private int data;
