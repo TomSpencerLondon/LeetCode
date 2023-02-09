@@ -49,6 +49,7 @@ public class Trie {
             if (currentNode.children[index] == null) {
                 return false;
             }
+
             currentNode = currentNode.children[index];
         }
 
