@@ -1,4 +1,4 @@
-package com.tomspencerlondon.hashTables.pairs;
+package com.tomspencerlondon.hashTables.challenge3;
 
 import java.util.HashMap;
 import java.util.Map;
