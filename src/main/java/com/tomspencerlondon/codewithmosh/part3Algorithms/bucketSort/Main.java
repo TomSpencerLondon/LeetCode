@@ -11,6 +11,18 @@ public class Main {
     }
 
     public static void bucketSort(int[] array, int numberOfBuckets) {
+        List<List<Integer>> buckets = createBuckets(array, numberOfBuckets);
+
+        int index = 0;
+        for (List<Integer> bucket : buckets) {
+            Collections.sort(bucket);
+            for (Integer integer : bucket) {
+                array[index++] = integer;
+            }
+        }
+    }
+
+    private static List<List<Integer>> createBuckets(int[] array, int numberOfBuckets) {
         List<List<Integer>> buckets = new ArrayList<>();
 
         for (int i = 0; i < numberOfBuckets; i++) {
@@ -20,13 +32,6 @@ public class Main {
         for (int item : array) {
             buckets.get(item / numberOfBuckets).add(item);
         }
-
-        int index = 0;
-        for (List<Integer> bucket : buckets) {
-            Collections.sort(bucket);
-            for (Integer integer : bucket) {
-                array[index++] = integer;
-            }
-        }
+        return buckets;
     }
 }
