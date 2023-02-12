@@ -11,7 +11,7 @@ public class Main {
     }
 
     public static String reverseWords(String sentence) {
-        String[] words = sentence.split(" ");
+        String[] words = sentence.trim().split(" ");
 
         Collections.reverse(Arrays.asList(words));
 
