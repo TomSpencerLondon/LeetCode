@@ -11,6 +11,9 @@ public class Main {
     }
 
     public static char getMaxOccurringCharacter(String str) {
+        if (str == null || str.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
         final int ASCII_SIZE = 256;
 
         int[] frequencies = new int[ASCII_SIZE];
