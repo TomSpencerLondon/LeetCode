@@ -8,6 +8,10 @@ public class Main {
     }
 
     public static boolean isPalindrome2(String word) {
+        if (word == null) {
+            return false;
+        }
+
         int left = 0;
         int right = word.length() - 1;
 
