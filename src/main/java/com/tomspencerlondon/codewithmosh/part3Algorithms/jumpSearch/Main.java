@@ -1,4 +1,4 @@
-package com.tomspencerlondon.codewithmosh.jumpSearch;
+package com.tomspencerlondon.codewithmosh.part3Algorithms.jumpSearch;
 
 public class Main {
     public static void main(String[] args) {
