@@ -8,12 +8,12 @@ public class Main {
     }
 
     public static String reverse(String str) {
-        String reversed = "";
+        StringBuilder result = new StringBuilder();
 
         for (int i = str.length() - 1; i >= 0; i--) {
-            reversed += str.charAt(i);
+            result.append(str.charAt(i));
         }
 
-        return reversed;
+        return result.toString();
     }
 }
