@@ -8,6 +8,9 @@ public class Main {
     }
 
     public static int countVowels(String str) {
+        if (str == null) {
+            return 0;
+        }
         int count = 0;
         // a e i o u
         String vowels = "aeiou";
