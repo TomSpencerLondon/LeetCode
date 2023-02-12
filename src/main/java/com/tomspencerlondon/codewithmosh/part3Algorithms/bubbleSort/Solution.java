@@ -13,10 +13,16 @@ public class Solution {
     private static void bubbleSort(int[] array) {
 
         for (int i = 0; i < array.length; i++) {
-            for (int j = 1; j < array.length; j++) {
+            boolean isSorted = true;
+            for (int j = 1; j < array.length - i; j++) {
                 if (array[j] < array[j - 1]) {
                     swap(array, j);
+                    isSorted = false;
                 }
+            }
+
+            if (isSorted) {
+                return;
             }
         }
     }
