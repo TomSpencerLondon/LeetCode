@@ -11,7 +11,7 @@ public class Main {
         int count = 0;
         // a e i o u
         String vowels = "aeiou";
-        for (char ch : str.toCharArray()) {
+        for (char ch : str.toLowerCase().toCharArray()) {
             if (vowels.indexOf(ch) != -1) {
                 count++;
             }
