@@ -11,13 +11,11 @@ public class Main {
     }
 
     public static void bucketSort(int[] array, int numberOfBuckets) {
-        List<List<Integer>> buckets = createBuckets(array, numberOfBuckets);
-
         int index = 0;
-        for (List<Integer> bucket : buckets) {
+        for (List<Integer> bucket : createBuckets(array, numberOfBuckets)) {
             Collections.sort(bucket);
-            for (Integer integer : bucket) {
-                array[index++] = integer;
+            for (Integer number : bucket) {
+                array[index++] = number;
             }
         }
     }
