@@ -6,6 +6,10 @@ public class Main {
     }
 
     public static String capitalize(String sentence) {
+        if (sentence == null || sentence.trim().isEmpty()) {
+            return "";
+        }
+
         String[] words = sentence.trim()
                 .replaceAll(" +", " ")
                 .split(" ");
