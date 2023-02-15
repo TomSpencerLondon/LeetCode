@@ -1,4 +1,4 @@
-package com.tomspencerlondon.algorithms.educative.searching.selectionSort;
+package com.tomspencerlondon.algorithms.educative.sorting.selectionSort;
 
 import java.util.Arrays;
 

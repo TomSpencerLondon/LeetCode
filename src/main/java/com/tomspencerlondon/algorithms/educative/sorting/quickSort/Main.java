@@ -1,4 +1,4 @@
-package com.tomspencerlondon.algorithms.educative.searching.quickSort;
+package com.tomspencerlondon.algorithms.educative.sorting.quickSort;
 
 import java.util.Arrays;
 

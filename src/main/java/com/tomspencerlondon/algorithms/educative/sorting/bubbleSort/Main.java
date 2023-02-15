@@ -1,4 +1,4 @@
-package com.tomspencerlondon.algorithms.educative.searching.bubbleSort;
+package com.tomspencerlondon.algorithms.educative.sorting.bubbleSort;
 
 import java.util.Arrays;
 

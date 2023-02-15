@@ -1,4 +1,4 @@
-package com.tomspencerlondon.algorithms.educative.searching.mergeSort;
+package com.tomspencerlondon.algorithms.educative.sorting.mergeSort;
 
 import java.util.Arrays;
 

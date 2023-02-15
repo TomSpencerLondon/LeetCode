@@ -1,4 +1,4 @@
-package com.tomspencerlondon.algorithms.educative.searching.insertionSort;
+package com.tomspencerlondon.algorithms.educative.sorting.insertionSort;
 
 import java.util.Arrays;
 
