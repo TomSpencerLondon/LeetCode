@@ -1,4 +1,4 @@
-package com.tomspencerlondon.algorithms.educative.searchingAndSorting.challenge4.bruteForce;
+package com.tomspencerlondon.algorithms.educative.searchingAndSorting.challenge4;
 
 public class Main {
     public static void main(String[] args) {
