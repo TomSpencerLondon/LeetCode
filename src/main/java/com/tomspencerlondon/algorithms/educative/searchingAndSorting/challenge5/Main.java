@@ -11,7 +11,7 @@ public class Main {
         System.out.println(findDuplicates(nums));
     }
 
-    public static List<Integer> findDuplicates(int[] arr) {
+    private static List<Integer> findDuplicates(int[] arr) {
         List<Integer> duplicates = new ArrayList<>();
         Map<Integer, Integer> freq = new HashMap<>();
 
