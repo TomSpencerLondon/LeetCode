@@ -6,6 +6,5 @@ public class Main {
         int array1[] = {4, 5, 7, 10};
         int array2[] = {12, 13, 15, 18, 20, 24};
 
-
     }
 }

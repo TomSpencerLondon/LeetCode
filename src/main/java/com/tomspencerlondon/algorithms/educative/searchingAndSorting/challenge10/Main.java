@@ -13,16 +13,16 @@ public class Main {
 
     private static void dutchNationalFlag(int[] array) {
         int left = 0;
-        int mid = 0;
+        int current = 0;
         int right = array.length - 1;
 
-        while (mid <= right) {
-            if (array[mid] == 0) {
-                mySwap(array, left++, mid++);
-            } else if (array[mid] == 2) {
-                mySwap(array, mid, right--);
+        while (current <= right) {
+            if (array[current] == 0) {
+                mySwap(array, left++, current++);
+            } else if (array[current] == 2) {
+                mySwap(array, current, right--);
             } else {
-                mid++;
+                current++;
             }
         }
     }

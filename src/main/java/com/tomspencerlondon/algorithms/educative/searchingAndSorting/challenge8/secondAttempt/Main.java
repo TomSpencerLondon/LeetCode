@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         int[] array = {1, 3, 5, 6, 8, 10, 15, 21, 25};
-        int target = 24;
+        int target = 15;
         System.out.println(insertPosition(array, target));
     }
 
