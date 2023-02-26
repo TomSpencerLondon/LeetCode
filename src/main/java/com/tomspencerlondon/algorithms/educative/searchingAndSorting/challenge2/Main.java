@@ -22,17 +22,17 @@ public class Main {
                 return mid;
             }
 
-            if (array[left] <= array[mid]) {
-                if (target > array[mid] || target < array[left]) {
-                    left = mid + 1;
-                } else {
+            if (target < array[mid]) {
+                if (target >= array[left] && target <= array[mid]) {
                     right = mid - 1;
+                } else {
+                    left = mid + 1;
                 }
             } else {
-                if (target < array[mid] || target > array[right]) {
-                    right = mid - 1;
-                } else {
+                if (target <= array[right] && target >= array[mid]) {
                     left = mid + 1;
+                } else {
+                    right = mid - 1;
                 }
             }
         }
