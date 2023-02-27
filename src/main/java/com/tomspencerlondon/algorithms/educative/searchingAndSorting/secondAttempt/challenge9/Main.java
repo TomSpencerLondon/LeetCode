@@ -22,7 +22,7 @@ public class Main {
 
         int mid = (low + high) / 2;
 
-        if (array[mid] == "") {
+        if (array[mid].equals("")) {
             int left = mid - 1;
             int right = mid + 1;
 
@@ -31,10 +31,10 @@ public class Main {
                     return -1;
                 }
 
-                if (left >= low && array[left] != "") {
+                if (left >= low && !array[left].equals("")) {
                     mid = left;
                     break;
-                } else if (left <= high && array[right] != "") {
+                } else if (left <= high && !array[right].equals("")) {
                     mid = right;
                     break;
                 }
