@@ -29,7 +29,7 @@ public class Main {
 
         int[] visited = new int[numVertices];
 
-        LinkedList<Integer> queue = new LinkedList<Integer>();
+        LinkedList<Integer> queue = new LinkedList<>();
         visited[source] = 1;
         queue.add(source);
 
