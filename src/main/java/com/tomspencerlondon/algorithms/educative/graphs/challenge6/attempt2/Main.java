@@ -3,6 +3,7 @@ package com.tomspencerlondon.algorithms.educative.graphs.challenge6.attempt2;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.stream.IntStream;
 
 public class Main {
 
@@ -44,13 +45,7 @@ public class Main {
 
         dfs(transpose, 0, visited);
 
-        for (int i = 0; i < numVertices; i++) {
-            if (!visited[i]) {
-                return false;
-            }
-        }
-
-        return true;
+        return IntStream.range(0, numVertices).allMatch(i -> visited[i]);
     }
 
     private static void dfs(Graph graph, int source, boolean[] visited) {
