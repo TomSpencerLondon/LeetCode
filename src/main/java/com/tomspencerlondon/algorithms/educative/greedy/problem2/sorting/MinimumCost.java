@@ -14,8 +14,8 @@ public class MinimumCost {
         int cost = 0;
         int numberOfPipes = pipes.length - 1;
 
+        Arrays.sort(pipes);
         for (int i = 0; i < numberOfPipes; i++) {
-            Arrays.sort(pipes);
             int prevCost = cost;
             cost = (pipes[i] + pipes[i + 1]);
             pipes[i + 1] = cost;
