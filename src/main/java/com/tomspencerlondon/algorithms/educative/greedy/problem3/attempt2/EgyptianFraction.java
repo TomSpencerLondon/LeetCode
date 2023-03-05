@@ -1,9 +1,8 @@
-package com.tomspencerlondon.algorithms.educative.greedy.problem3;
+package com.tomspencerlondon.algorithms.educative.greedy.problem3.attempt2;
 
 public class EgyptianFraction {
 
     public static void main(String[] args) {
-
         printEgyptianFraction(2, 3);
     }
 
@@ -33,6 +32,5 @@ public class EgyptianFraction {
         System.out.println("1/" + n + ", ");
 
         printEgyptianFraction(numerator * n - denominator, denominator * n);
-
     }
 }
