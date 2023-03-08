@@ -10,7 +10,6 @@ public class MaxThieves {
 
         char[] policeThiefArray1 = {'T', 'T', 'P', 'P', 'T', 'P'};
         System.out.println("Maximum thieves caught for {T, T, P, P, T,P}: " + policeThief(policeThiefArray1, 2));
-
     }
 
     private static int policeThief(char[] copsAndRobbers, int unitsAway) {
