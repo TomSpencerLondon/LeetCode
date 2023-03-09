@@ -20,17 +20,8 @@ public class MinPlatforms {
         public int getTime() {
             return time;
         }
-
-        public void setTime(int time) {
-            this.time = time;
-        }
-
         public String getAction() {
             return action;
-        }
-
-        public void setAction(String action) {
-            this.action = action;
         }
     }
     public static void main(String[] args) {
@@ -41,7 +32,9 @@ public class MinPlatforms {
     }
 
     private static int minPlatforms(int[] arrivals, int[] departures) {
-        List<Scheduled> schedules = Stream.concat(createSchedules(arrivals, "A"), createSchedules(departures, "D"))
+        List<Scheduled> schedules = Stream.concat(
+                        createSchedules(arrivals, "A"),
+                        createSchedules(departures, "D"))
                 .sorted(Comparator.comparingInt(Scheduled::getTime))
                 .toList();
 
@@ -62,6 +55,7 @@ public class MinPlatforms {
     }
 
     private static Stream<Scheduled> createSchedules(int[] trains, String action) {
-        return Arrays.stream(trains).mapToObj(arrival -> new Scheduled(arrival, action));
+        return Arrays.stream(trains)
+                .mapToObj(arrival -> new Scheduled(arrival, action));
     }
 }
