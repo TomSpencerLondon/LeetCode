@@ -29,19 +29,19 @@ public enum MinPlatforms {
         int platformsNeeded = 1;
         int result = 1;
 
-        int i = 1;
-        int j = 0;
-        while (i < arrival.length && j < departure.length) {
-            if (arrival[i] <= departure[j]) {
+        int arrivalIndex = 1;
+        int departureIndex = 0;
+        while (arrivalIndex < arrival.length && departureIndex < departure.length) {
+            if (arrival[arrivalIndex] <= departure[departureIndex]) {
                 platformsNeeded++;
-                i++;
+                arrivalIndex++;
 
                 if (platformsNeeded > result) {
                     result = platformsNeeded;
                 }
             } else {
                 platformsNeeded--;
-                j++;
+                departureIndex++;
             }
         }
 

@@ -4,7 +4,7 @@ public class EgyptianFraction {
 
     public static void main(String[] args) {
 
-        printEgyptianFraction(2, 3);
+        printEgyptianFraction(7, 8);
     }
 
     private static void printEgyptianFraction(int numerator, int denominator) {
