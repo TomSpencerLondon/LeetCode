@@ -1,36 +1,29 @@
 package com.tomspencerlondon.algorithms.educative.greedy.problem3.attempt3;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EgyptianFraction {
 
     public static void main(String[] args) {
-        printEgyptianFraction(2, 3);
+        System.out.println(printEgyptianFraction(7, 15));
     }
 
-    private static void printEgyptianFraction(int numerator, int denominator) {
-        if (numerator == 0 || denominator == 0) {
-            return;
-        }
-
-        if (denominator % numerator == 0) {
-            System.out.println("1/" + denominator / numerator);
-            return;
-        }
-
-        if (numerator % denominator == 0) {
-            System.out.println(numerator / denominator);
-            return;
-        }
-
+    private static String printEgyptianFraction(int numerator, int denominator) {
+        // your code
+        List<String> result = new ArrayList<>();
         if (numerator > denominator) {
-            System.out.println(numerator / denominator + ", ");
-            printEgyptianFraction(numerator % denominator, denominator);
-            return;
+            int i = numerator / denominator;
+            result.add(String.valueOf(i));
+            numerator = numerator - i * denominator;
         }
 
-        int n = denominator / numerator + 1;
-
-        System.out.println("1/" + n + ", ");
-
-        printEgyptianFraction(numerator * n - denominator, denominator);
+        while (numerator != 0) {
+            int i = (int) Math.ceil((double) denominator / numerator);
+            result.add("1/" + i);
+            numerator = numerator * i - denominator;
+            denominator = denominator * i;
+        }
+        return result.toString();
     }
 }
