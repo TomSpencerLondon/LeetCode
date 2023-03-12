@@ -6,7 +6,7 @@ import java.util.List;
 public class EgyptianFraction {
 
     public static void main(String[] args) {
-        System.out.println(printEgyptianFraction(7, 15));
+        System.out.println(printEgyptianFraction(11, 3));
     }
 
     private static String printEgyptianFraction(int numerator, int denominator) {
