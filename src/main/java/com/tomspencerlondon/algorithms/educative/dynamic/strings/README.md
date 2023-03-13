@@ -63,13 +63,13 @@ f(index1, index2)
    return 0;
  }
  
- if (s1[index1] ==
- } s2[index2]) {
-    return 1 + f(index1 - 1, index2 - 1);
+ if (s1[index1] == s2[index2]) {
+     dp[i][j] = -1;
+     
+     return 1 + f(index1 - 1, index2 - 1);
  }
  
   return Max(f(index1 - 1, index2), f(index1, index2 - 1))
 
 }
 ```
-}
