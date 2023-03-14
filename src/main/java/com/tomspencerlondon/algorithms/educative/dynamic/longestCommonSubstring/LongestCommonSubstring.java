@@ -10,11 +10,6 @@ public class LongestCommonSubstring {
 
     private static int longestCommonSubstring(String first, String second) {
         int[][] dp = new int[first.length() + 1][second.length() + 1];
-        for (int i = 1; i < second.length(); i++) {
-            if (second.charAt(i) == first.charAt(0)) {
-                dp[0][i] = 1;
-            }
-        }
 
         int answer = -1;
         for (int i = 1; i <= first.length(); i++) {
