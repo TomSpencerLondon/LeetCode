@@ -1,23 +1,30 @@
 package com.tomspencerlondon.algorithms.educative.dynamic.shortestCommonSuperstring;
 
-public class ShortestCommonSuperstring {
+public class ShortestCommonSupersequence {
 
     public static void main(String[] args) {
         String first = "abcf";
         String second = "bdcf";
-        System.out.println(shortestCommonSuperString(first, second));
+        // Supersequence is a string which contains both the
+        // subsequences
+        // abcf and bdcf as two different subsequence
+        // the longest supersequence = abcfbdcf
+        // the shortest length supersequence becomes
+        // abdcf
+        System.out.println(shortestCommonSupersequence(first, second));
     }
 
-    private static int shortestCommonSuperString(String first, String second) {
+    private static int shortestCommonSupersequence(String first, String second) {
         int[][] dp = new int[first.length() + 1][second.length() + 1];
+
+        for (int i = 0; i <= first.length(); i++) {
+            dp[i][0] = i;
+        }
 
         for (int i = 0; i <= second.length(); i++) {
             dp[0][i] = i;
         }
 
-        for (int i = 0; i <= first.length(); i++) {
-            dp[i][0] = i;
-        }
 
 
         for (int row = 1; row <= first.length(); row++) {
