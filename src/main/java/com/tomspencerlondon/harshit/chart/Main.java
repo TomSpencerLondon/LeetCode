@@ -38,5 +38,9 @@ public class Main {
 
 
         graph.showOrgChart();
+
+        System.out.println(graph.commonManager(
+                new Employee(8, "Kevin", "SE1"),
+                new Employee(6, "Serge", "E1")));
     }
 }

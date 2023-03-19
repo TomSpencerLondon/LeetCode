@@ -10,6 +10,5 @@ public class Main {
                 {1, 0, 1, 0, 0}
         };
 
-
     }
 }
