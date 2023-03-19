@@ -17,10 +17,6 @@ public class Graph {
         }
     }
 
-    // Pass optional parameter of list of employees
-    // empty if last level
-    // delete the positions
-    // link people - VP1 starting from CEO for example
     public boolean addEmployee(Employee manager, Employee employee) {
         if (manager.getPosition() == 0) {
             ceo = manager;
@@ -30,18 +26,6 @@ public class Graph {
 
         return true;
     }
-
-    // CEO -> CTO -> VP1 -> E1 -> SE1A
-    //                      ^
-    // CEO -> CTO -> VP1 -> E2 -> SE1E
-    //                      ^
-
-    // VP2, SE1A
-    // CEO -> CPO -> VP2
-    //         ^
-    // CEO -> CTO -> VP1 -> E1 -> SE1A
-    //         ^
-    // one or both employees not present -> return no common manager
 
     public Employee commonManager(Employee employeeOne, Employee employeeTwo) {
         List<Employee> employeeOnePath = pathTo(employeeOne);
