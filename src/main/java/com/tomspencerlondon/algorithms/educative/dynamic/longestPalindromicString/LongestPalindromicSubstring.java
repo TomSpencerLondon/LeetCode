@@ -1,6 +1,6 @@
-package com.tomspencerlondon.algorithms.educative.dynamic.longestPalindromicSubsequence;
+package com.tomspencerlondon.algorithms.educative.dynamic.longestPalindromicString;
 
-public class LongestPalindromicSubsequence {
+public class LongestPalindromicSubstring {
     public static void main(String[] args) {
         String words = "thereisaradaranditisapalindrome";
         String reversed = new StringBuilder(words).reverse().toString();
