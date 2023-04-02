@@ -30,7 +30,9 @@ public class Main {
             right[i - middle] = numbers[i];
         }
 
+        // this statement is completed for parent array
         mergeSort(left);
+        // then this statement is finished for parent array
         mergeSort(right);
 
         merge(left, right, numbers);
