@@ -8,8 +8,12 @@ class Main {
     public static void main(String[] args) {
         int[] array = {3, 2, 5, 1};
 
-        quickSort(array, 0, array.length - 1);
+        quickSort(array);
         System.out.println(Arrays.toString(array));
+    }
+
+    public static void quickSort(int[] array) {
+        quickSort(array, 0, array.length - 1);
     }
     public static void quickSort(int[] array, int start, int end) {
         if (start >= end) {
