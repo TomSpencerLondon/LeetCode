@@ -38,18 +38,62 @@ than pivot lie on the left and all elements greater than pivot are on the right
 
 
 ```java
+
 class Main {
-    public static int quickSort(int[] array, int start, int end) {
-        int pivotIndex = 0;
-        if (start < end) {
-            pivotIndex = partition(array, start, end);
+
+    public static void main(String[] args) {
+        int[] array = {3, 2, 5, 1};
+
+        quickSort(array);
+        System.out.println(Arrays.toString(array));
+    }
+
+    public static void quickSort(int[] array) {
+        quickSort(array, 0, array.length - 1);
+    }
+    public static void quickSort(int[] array, int start, int end) {
+        if (start >= end) {
+            return;
         }
-        
-        quickSort(array, start, pivotIndex - 1);
-        quickSort(array, pivotIndex + 1, end);
+
+        int pivotIndex = new Random().nextInt(end - start) + start;
+        int pivot = array[pivotIndex];
+        swap(array, pivotIndex, end);
+
+        int leftPointer = partition(array, start, end, pivot);
+        swap(array, leftPointer, end);
+
+        quickSort(array, start, leftPointer - 1);
+        quickSort(array, leftPointer + 1, end);
+    }
+
+    private static int partition(int[] array, int start, int end, int pivot) {
+        int leftPointer = start;
+        int rightPointer = end;
+
+        while (leftPointer < rightPointer) {
+            while (array[leftPointer] <= pivot && leftPointer < rightPointer) {
+                leftPointer++;
+            }
+
+            while (array[rightPointer] >= pivot && leftPointer < rightPointer) {
+                rightPointer--;
+            }
+
+            swap(array, leftPointer, rightPointer);
+        }
+        return leftPointer;
+    }
+
+    public static void swap(int[] array, int left, int right) {
+        int temp = array[left];
+        array[left] = array[right];
+        array[right] = temp;
     }
 }
+
 ```
 
+### Merge Sort
 
 
