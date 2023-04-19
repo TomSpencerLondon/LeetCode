@@ -11,12 +11,16 @@ public class Knapsack {
     private static int maxValue(int[] profits, int[] weights, int weightsLength, int capacity) {
         int[][] dp = new int[weightsLength + 1][capacity + 1];
 
-        for (int currentWeight = 1; currentWeight <= weightsLength; currentWeight++) {
-            for (int currentCapacity = 0; currentCapacity <= capacity; currentCapacity++) {
-                if (currentCapacity >= weights[currentWeight - 1]) {
-                    dp[currentWeight][currentCapacity] = Math.max(profits[currentWeight - 1] + dp[currentWeight - 1][currentCapacity - weights[currentWeight - 1]], dp[currentWeight - 1][currentCapacity]);
+        for (int i = 1; i <= weightsLength; i++) {
+            for (int j = 0; j <= capacity; j++) {
+                if (j >= weights[i - 1]) {
+                    dp[i][j] = Math.max(
+                            dp[i - 1][j],
+                            profits[i - 1] +
+                            dp[i - 1][j - weights[i - 1]]
+                            );
                 } else {
-                    dp[currentWeight][currentCapacity] = dp[currentWeight - 1][currentCapacity];
+                    dp[i][j] = dp[i - 1][j];
                 }
             }
         }
